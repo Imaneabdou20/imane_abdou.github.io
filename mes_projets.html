@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header, footer {
+            background: #2f00ff;
+            color: white;
+            padding: 15px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        .project {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .status {
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .valid {
+            color: green;
+        }
+        .pending {
+            color: orange;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mes Projets</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="eportfolio.html">Retour à l'ePortfolio</a>
+    </nav>
+
+    <div class="container">
+        <h2>Liste de mes projets</h2>
+        
+        <div class="project">
+            <h3>SAE 1.01 - Hygiène informatique et cybersécurité</h3>
+            <p class="status valid">✔ Validée</p>
+            <a href="#" class="btn">Voir la vidéo</a>
+            <a href="#" class="btn">Voir le compte rendu</a>
+        </div>
+        
+        <div class="project">
+            <h3>SAE 1.02 - Réseaux informatiques</h3>
+            <p class="status pending">⏳ En cours</p>
+            <a href="#" class="btn">Voir la vidéo</a>
+            <a href="#" class="btn">Voir le compte rendu</a>
+        </div>
+        
+        <div class="project">
+            <h3>SAE 1.03 - Transmission de données</h3>
+            <p class="status pending">⏳ En cours</p>
+            <a href="#" class="btn">Voir la vidéo</a>
+            <a href="#" class="btn">Voir le compte rendu</a>
+        </div>
+        
+        <div class="project">
+            <h3>Se présenter sur internet</h3>
+            <p class="status pending">⏳ En cours</p>
+            <a href="#" class="btn">Voir la vidéo</a>
+            <a href="#" class="btn">Voir le compte rendu</a>
+        </div>
+        
+        <div class="project">
+            <h3>SAE 1.05 - Chiffrement des données</h3>
+            <p class="status pending">⏳ En cours</p>
+            <a href="#" class="btn">Voir la vidéo</a>
+            <a href="#" class="btn">Voir le compte rendu</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; ImaneProduction 2024</p>
+    </footer>
+</body>
+</html>

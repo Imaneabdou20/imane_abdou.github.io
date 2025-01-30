@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expérience - ABDOU IMANE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #003f87;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #003f87;
+            margin-bottom: 20px;
+        }
+
+        /* Cadre défilant pour chaque expérience */
+        .experience-container {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-title {
+            background-color: #003f87;
+            color: white;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        .experience-content {
+            display: flex;
+            overflow-x: auto; /* Permet le défilement horizontal */
+            padding: 10px;
+        }
+
+        .experience-item {
+            min-width: 300px;
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .experience-item:last-child {
+            margin-right: 0;
+        }
+
+        footer {
+            background-color: #003f87;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mon Expérience Professionnelle</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="formation.html">Formation</a>
+        <a href="experience.html">Expérience</a>
+        <a href="competences.html">Compétences</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="eportfolio.html">Eportfolio</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>Mes Expériences Professionnelles</h2>
+
+        <!-- Expérience 1 -->
+        <div class="experience-container">
+            <div class="experience-title">Apprenti Technicien Boucle Locale Cuivre</div>
+            <div class="experience-content">
+                <div class="experience-item">
+                    <strong>Entreprise :</strong> SARL SNCT, Pamandzi, Mayotte
+                </div>
+                <div class="experience-item">
+                    <strong>Type de contrat :</strong> Contrat en alternance
+                </div>
+                <div class="experience-item">
+                    <strong>Période :</strong> Sept. 2023 - Août 2024 (1 an)
+                </div>
+                <div class="experience-item">
+                    <strong>Missions :</strong>
+                    <p>
+                        Réalisation des travaux de production, distribution et transport du réseau.
+                        <br>Raccordement des lignes ADSL et VDSL pour le réseau Orange.
+                        <br>Diagnostic des pannes et rédaction de rapports.
+                        <br>Respect des normes de sécurité en boucle locale.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expérience 2 -->
+        <div class="experience-container">
+            <div class="experience-title">Apprenti Technicien Ligne Terminale Cuivre</div>
+            <div class="experience-content">
+                <div class="experience-item">
+                    <strong>Entreprise :</strong> SARL SNCT, Pamandzi, Mayotte
+                </div>
+                <div class="experience-item">
+                    <strong>Type de contrat :</strong> Contrat en alternance
+                </div>
+                <div class="experience-item">
+                    <strong>Période :</strong> Août 2022 - Juil. 2023 (1 an)
+                </div>
+                <div class="experience-item">
+                    <strong>Missions :</strong>
+                    <p>
+                        Installation, maintenance et dépannage du réseau télécom en cuivre.
+                        <br>Diagnostic des pannes et réalisation de tests de performance.
+                        <br>Rédaction de rapports d’intervention détaillés.
+                        <br>Amélioration de la relation client grâce à des interventions professionnelles.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; ImaneProduction 2024</p>
+    </footer>
+
+</body>
+</html>
