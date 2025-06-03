@@ -1,157 +1,269 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABDOU IMANE - Eportfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>      
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ABDOU IMANE - Eportfolio</title>
+<style>
+  body {
+   font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+  }
+  header {
+    background-color: #003f87;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  nav.main-nav {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  nav.main-nav a {
+    display: inline-block;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #004080;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  nav.main-nav a:hover,
+  nav.main-nav a.active-main {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+  }
+  nav.sub-nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  nav.sub-nav a {
+    margin: 0 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: background-color 0.3s ease;
+  }
+  nav.sub-nav a.active {
+    background-color: #0056b3;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f0f0f0;
+  }
+  tr.block-row td {
+    background-color: #e8f4ff;
+    font-weight: bold;
+    font-size: 1.05em;
+  }
+  .hidden {
+    display: none;
+  }
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #555;
+    font-size: 0.9em;
+  }
+</style>
+</head>
 <body>
 
-    <header>
-        <h1>MON Eportfolio</h1>
-    </header>
+<header>
+  <h1>MON Eportfolio</h1>
+</header>
 
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="formation.html">Formation</a>
-        <a href="experience.html">Expérience</a>
-        <a href="competences.html">Compétences</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="eportfolio.html">Eportfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<nav class="main-nav">
+  <a href="index.html">Accueil</a>
+  <a href="formation.html">Formation</a>
+  <a href="experience.html">Expérience</a>
+  <a href="competences.html">Compétences</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="eportfolio.html" class="active-main">Eportfolio</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-    <div class="container">
-        <h2>Bienvenue dans mon ePortfolio</h2>
+<nav class="sub-nav">
+  <a href="#" id="btn-r1xx" class="active">Ressources 1er Semestre (R1XX)</a>
+  <a href="#" id="btn-r2xx">Ressources 2ème Semestre (R2XX)</a>
+  <a href="#" id="btn-blocs">Blocs de Compétences</a>
+  <a href="#" id="btn-sae">Projet de Situation d'Apprentissage et d'Évaluation (SAE)</a>
+</nav>
 
-        <!-- ✅ Boutons bien placés sous le titre -->
-        <div class="buttons-container">
-            <a href="mes_projets.html" class="btn">📂 Voir Mes Projets</a>
-            <a href="travaux_pratique.html" class="btn">🛠️ Voir Travaux Pratiques</a>
-        </div>
+<div class="container">
 
-        <div class="section-title">Blocs de Compétences</div>
+  <!-- Tableau Ressources 1er Semestre -->
+  <table id="table-r1xx">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Validée</th>
+        <th>Moyenne Validée</th>
+        <th>Non Validée</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>R101 – Initiation aux réseaux informatiques</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R102 – Principes et architecture des réseaux</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R103 – Réseaux locaux et équipements actifs</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R104 – Fondamentaux des systèmes électroniques</td><td><input type="checkbox"></td><td><input type="checkbox"checked></td><td><input type="checkbox"></td></tr>
+      <tr><td>R105 – Supports de transmission pour les réseaux</td><td><input type="checkbox"></td><td><input type="checkbox"checked></td><td><input type="checkbox"></td></tr>
+      <tr><td>R106 – Architecture des systèmes numériques et informatiques</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"checked></td></tr>
+      <tr><td>R107 – Fondamentaux de la programmation</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R108 – Bases des systèmes d’exploitation</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R109 – Introduction aux technologies web</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R110 – Anglais technique 1</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R111 – Expression, culture, communication professionnelles : introduction</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R112 – Projet personnel et professionnel</td><td><input type="checkbox"checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R113 – Mathématiques du signal</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox" checked></td></tr>
+      <tr><td>R114 – Mathématiques des transmissions</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox" checked></td></tr>
+      <tr><td>R115 – Gestion de projet 1 : maîtriser les bases de l’organisation du travail</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+    </tbody>
+  </table>
 
-        <!-- ✅ Liste complète des compétences (rien n'est supprimé) -->
-        <<table>
-            <thead>
-                <tr>
-                    <th>Unité</th>
-                    <th>Module</th>
-                    <th>Validée</th>
-                    <th>Moyenne Validée</th>
-                    <th>Non Validée</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.01 Initiation aux réseaux informatiques</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.02 Principes et architecture des réseaux</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.03 Réseaux locaux et équipements actifs</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.04 Fondamentaux des systèmes électroniques</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.05 Supports de transmission pour réseaux locaux</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.06 Architecture des systèmes numériques et informatiques</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.07 Fondamentaux de la programmation</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.08 Bases des systèmes d’exploitation</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.09 Introduction aux technologies Web</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.10 Anglais de communication et vocabulaire technique</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.11 Expression-Culture-Communication Professionnelles 1</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.12 Projet Personnel et Professionnel</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.13 Mathématiques du signal</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-                <tr>
-                    <td>POLE RESSOURCES UE</td>
-                    <td>R1.15 Gestion de projet</td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                    <td><input type="checkbox" disabled></td>
-                </tr>
-            </tbody>
-        </table>
-        
-            
-    </div>
+  <!-- Tableau Ressources 2eme Semestre -->
+  <table id="table-r2xx" class="hidden">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Validée</th>
+        <th>Moyenne Validée</th>
+        <th>Non Validée</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>R201 – Technologies de l’internet</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R202 – Administration système et fondamentaux de la virtualisation</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R203 – Bases des services réseaux</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R204 – Initiation à la téléphonie d’entreprise</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R205 – Signaux et systèmes pour les transmissions</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R206 – Numérisation de l’information</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R207 – Sources de données</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R208 – Analyse et traitement de données structurées</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R209 – Initiation au développement web</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R210 – Anglais technique 2</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R211 – Expression, culture, communication professionnelles 2</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R212 – Projet tutoré</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R213 – Mathématiques pour l’informatique et l’électronique</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>R214 – Analyse des signaux</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+    </tbody>
+  </table>
 
-    <footer>
-        <p>&copy; ImaneProduction 2024</p>
-    </footer>
+  <!-- Tableau Blocs de Compétences -->
+  <table id="table-blocs" class="hidden">
+    <thead>
+      <tr><th>Bloc de Compétence</th><th colspan="3"></th></tr>
+    </thead>
+    <tbody>
+      <tr class="block-row"><td>U1RTB1 – Bloc de Compétences 1 : Administrer les réseaux et l’internet</td><td colspan="3"></td></tr>
+      <tr class="block-row"><td>U1RTB2 – Bloc de Compétences 2 : Connecter les entreprises et les usagers</td><td colspan="3"></td></tr>
+      <tr class="block-row"><td>U1RTB3 – Bloc de Compétences 3 : Créer des outils et applications informatiques pour les R&T</td><td colspan="3"></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Tableau SAE -->
+  <table id="table-sae" class="hidden">
+    <thead>
+      <tr>
+        <th>Projet SAE</th>
+        <th>Validée</th>
+        <th>Moyenne Validée</th>
+        <th>Non Validée</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>SAE 101 – Se sensibiliser à l’hygiène informatique et à la cybersécurité</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 102 – S’initier aux réseaux informatiques</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 103 – Découvrir un dispositif de transmission</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 104 – Se présenter sur internet</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 105 – Traiter des données</td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 201 – Construire un réseau informatique pour une petite structure</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 202 – Mesurer et caractériser un signal ou un système</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 203 – Mettre en place une solution informatique pour l’entreprise</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE 204 – Projet intégratif</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+      <tr><td>SAE - Portfolio</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<footer>
+  <p>&copy; ImaneProduction 2024</p>
+</footer>
+
+<script>
+  // Sélection des boutons et tableaux
+  const btnR1xx = document.getElementById('btn-r1xx');
+  const btnR2xx = document.getElementById('btn-r2xx');
+  const btnBlocs = document.getElementById('btn-blocs');
+  const btnSae = document.getElementById('btn-sae');
+
+  const tableR1xx = document.getElementById('table-r1xx');
+  const tableR2xx = document.getElementById('table-r2xx');
+  const tableBlocs = document.getElementById('table-blocs');
+  const tableSae = document.getElementById('table-sae');
+
+  // Fonction pour cacher tous les tableaux et retirer les classes actives
+  function hideAll() {
+    tableR1xx.classList.add('hidden');
+    tableR2xx.classList.add('hidden');
+    tableBlocs.classList.add('hidden');
+    tableSae.classList.add('hidden');
+
+    btnR1xx.classList.remove('active');
+    btnR2xx.classList.remove('active');
+    btnBlocs.classList.remove('active');
+    btnSae.classList.remove('active');
+  }
+
+  // Gestion des clics sur les boutons
+  btnR1xx.addEventListener('click', (e) => {
+    e.preventDefault();
+    hideAll();
+    tableR1xx.classList.remove('hidden');
+    btnR1xx.classList.add('active');
+  });
+
+  btnR2xx.addEventListener('click', (e) => {
+    e.preventDefault();
+    hideAll();
+    tableR2xx.classList.remove('hidden');
+    btnR2xx.classList.add('active');
+  });
+
+  btnBlocs.addEventListener('click', (e) => {
+    e.preventDefault();
+    hideAll();
+    tableBlocs.classList.remove('hidden');
+    btnBlocs.classList.add('active');
+  });
+
+  btnSae.addEventListener('click', (e) => {
+    e.preventDefault();
+    hideAll();
+    tableSae.classList.remove('hidden');
+    btnSae.classList.add('active');
+  });
+</script>
 
 </body>
 </html>

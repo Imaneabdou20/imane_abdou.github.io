@@ -1,93 +1,82 @@
-/* Style général pour le corps */
+/* --------- Base --------- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Fond gris clair */
-    overflow-y: scroll;
-}
-
-/* En-tête */
-header {
-    position: relative; /* Nécessaire pour le pseudo-élément */
-    background-image: url('entete.jpg'); /* Chemin vers l'image */
-    background-size: cover; /* L'image couvre tout le header */
-    background-position: center; /* Centrer l'image */
-    background-repeat: no-repeat; /* Éviter les répétitions de l'image */
-    color: white; /* Texte en blanc pour contraster avec l'image */
+    background-color: #f5f5f5;
+    color: #333;
     text-align: center;
-    padding: 40px 0; /* Ajuster la hauteur du header */
-    font-size: 2em; /* Taille de texte ajustée */
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Couche noire avec opacité de 50% */
-    z-index: 1;
+/* --------- En-tête --------- */
+header {
+    background-color: #003f87;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
 }
 
 header h1 {
-    position: relative; /* Pour que le texte soit au-dessus de l'opacité */
-    z-index: 2;
-}
-/* Navigation */
-nav {
-    background-color: #333; /* Fond noir */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+    font-size: 2.5em;
+    margin: 0;
 }
 
-/* Liens de navigation */
+/* --------- Navigation --------- */
+nav {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 nav a {
-    color: white; /* Texte blanc */
-    padding: 14px 20px;
+    color: white;
     text-decoration: none;
-    text-align: center;
+    padding: 14px 20px;
     font-size: 18px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Animation */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #ddd; /* Fond gris clair au survol */
-    color: black; /* Texte noir au survol */
+    background-color: #ddd;
+    color: #000;
 }
 
-nav a:active {
-    background-color: #ffffff; /* Fond blanc */
-    color: #121212; /* Texte noir intense */
-}
-
-/* Conteneur principal */
+/* --------- Contenu principal --------- */
 .container {
-    padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
-/* Style du titre h1 */
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
-h1 {
-    color: white; /* Texte en blanc */
-    font-size: 2.5em;
-    background-color: rgba(32, 32, 175, 0.64); /* Fond bleu (surlignage) */
-    padding: 10px 20px; /* Espacement interne pour un bon rendu */
-    display: inline-block; /* Ajuste le fond autour du texte */
-    border-radius: 5px; /* Coins arrondis pour un effet plus moderne */
+
+/* Titres dans les pages */
+h1, h2, h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
 }
+
+.section-title {
+    background-color: #e0f0ff;
+    border-left: 5px solid #003f87;
+    padding: 10px 15px;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
 /* Paragraphes */
 p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 1.6;
-    color: #333; /* Texte gris foncé */
 }
 
 /* Listes */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding-left: 0;
 }
 
@@ -96,171 +85,95 @@ ul li {
     margin-bottom: 10px;
 }
 
-ul li strong {
-    color: #003f87; /* Texte bleu */
-}
-
 /* Tables */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
+    margin-top: 20px;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
 }
 
 th {
-    background-color: #f4f4f4; /* Fond gris clair pour les en-têtes */
-}
-
-/* Sections */
-.section-title {
-    background-color: #f0f0f0; /* Fond légèrement gris */
-    padding: 10px;
-    margin-top: 20px;
-    border: 1px solid #ddd;
+    background-color: #f0f0f0;
     font-weight: bold;
 }
 
 /* Formulaire de contact */
 .contact-form {
-    border: 2px solid #ddd;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
     padding: 20px;
-    background-color: #f9f9f9; /* Fond clair */
-    width: 50%;
-    margin: 20px auto;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 10px;
 }
 
 .contact-form h3 {
     text-align: center;
-    color: #003f87; /* Texte bleu */
+    color: #003f87;
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 8px;
-    color: #333; /* Texte gris foncé */
+    margin: 10px 0 5px;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 15px;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .contact-form button {
-    display: block;
     width: 100%;
-    padding: 10px;
-    background-color: #4CAF50; /* Bouton vert */
+    padding: 12px;
+    background-color: #4CAF50;
     color: white;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
 }
 
 .contact-form button:hover {
-    background-color: #45a049; /* Vert légèrement plus foncé */
+    background-color: #45a049;
 }
 
-/* Pied de page */
+/* --------- Pied de page --------- */
 footer {
-    background-color: #f4f4f4; /* Fond gris clair */
-    color: #003f87; /* Texte bleu */
+    background-color: #222;
+    color: white;
     text-align: center;
     padding: 15px;
-    border-top: 1px solid #ddd;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
     font-size: 0.9em;
+    margin-top: 40px;
 }
 
-/* Mise en page responsive pour les petits écrans */
+/* --------- Responsive --------- */
 @media (max-width: 768px) {
-    nav a {
-        float: none;
-        display: block;
-        text-align: left;
+    nav {
+        flex-direction: column;
     }
+
+    nav a {
+        padding: 10px;
+        font-size: 16px;
+    }
+
     .container {
+        margin: 20px;
         padding: 15px;
     }
-    h1 {
+
+    header h1 {
         font-size: 2em;
     }
-    footer {
-        font-size: 0.8em;
-    }
-}
-/* Style global */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    text-align: center;
-}
-
-/* Style de l'en-tête */
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Style du menu de navigation */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #444;
-    padding: 10px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-nav a:hover {
-    background-color: #007BFF;
-    border-radius: 5px;
-}
-
-/* Conteneur principal */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-/* Cadre bleu autour du texte */
-.blue-box {
-    border: 3px solid blue;
-    background-color: #e0f0ff;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: justify;
-}
-
-/* Pied de page */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
 }

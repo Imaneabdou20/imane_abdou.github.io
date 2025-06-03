@@ -2,41 +2,201 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compétences - ABDOU IMANE</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compétences - ABDOU IMANE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #003f87;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    nav {
+      background-color: #333;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #003f87;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .formation-container {
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .formation-title {
+      background-color: #003f87;
+      color: white;
+      padding: 10px;
+      font-size: 1.2em;
+    }
+
+    .formation-content {
+      padding: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #003f87;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+
+    .internal-nav {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .internal-nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #003f87;
+      font-weight: bold;
+    }
+
+    .internal-nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Mes Compétences</h1>
-    </header>
+  <header>
+    <h1>Mes Compétences</h1>
+  </header>
 
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="formation.html">Formation</a>
-        <a href="experience.html">Expérience</a>
-        <a href="competences.html">Compétences</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="eportfolio.html">Eportfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="formation.html">Formation</a>
+    <a href="experience.html">Expérience</a>
+    <a href="competences.html">Compétences</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="eportfolio.html">Eportfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <div class="container">
-        <h2>Compétences Techniques et Professionnelles</h2>
-        <ul>
-            <li>Raccorder, mettre en service et maintenir des lignes ADSL et analogiques sur support cuivre.</li>
-            <li>Gestion de projet/chantier : organisation, planification, suivi, pilotage et réception.</li>
-            <li>Installation et maintenance des infrastructures de la Boucle Locale Cuivre.</li>
-            <li>Réalisation de câblages et connexions électriques dans des installations industrielles.</li>
-        </ul>
+  <div class="container">
+    <div class="internal-nav">
+      <a href="#formation">Compétences en Formation</a>
+      <a href="#entreprise">Compétences en Entreprise</a>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Mon ePortfolio</p>
-    </footer>
+    <!-- Compétences Techniques Générales -->
+    <h2>Compétences Techniques et Professionnelles</h2>
+    <ul>
+      <li>Raccorder, mettre en service et maintenir des lignes ADSL et analogiques sur support cuivre.</li>
+      <li>Gestion de projet/chantier : organisation, planification, suivi, pilotage et réception.</li>
+      <li>Installation et maintenance des infrastructures de la Boucle Locale Cuivre.</li>
+      <li>Réalisation de câblages et connexions électriques dans des installations industrielles.</li>
+    </ul>
+
+    <!-- Compétences Formation -->
+    <h2 id="formation">Compétences Acquises en Formation</h2>
+
+    <div class="formation-container">
+      <div class="formation-title">🎓 BTS Électrotechnique</div>
+      <div class="formation-content">
+        <ul>
+          <li>🔧 Conception et modification d’installations électriques</li>
+          <li>🧰 Réalisation, câblage et mise en service d’équipements</li>
+          <li>🛠️ Maintenance préventive et corrective des systèmes</li>
+          <li>🤖 Programmation d’automates et gestion de systèmes automatisés</li>
+          <li>⚡ Application des normes électriques et des règles de sécurité</li>
+          <li>🤝 Travail en équipe et gestion de projets techniques</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="formation-container">
+      <div class="formation-title">🎓 BUT Réseaux & Télécommunications - 1ère Année</div>
+      <div class="formation-content">
+        <ul>
+          <li>🌐 Configurer et administrer un réseau local (LAN)</li>
+          <li>🔌 Installer et sécuriser des équipements réseau</li>
+          <li>🖥️ Superviser et diagnostiquer un réseau</li>
+          <li>📡 Mettre en œuvre des solutions de communication (VoIP, Internet)</li>
+          <li>💻 Développer des scripts et outils pour l’automatisation réseau</li>
+          <li>🧠 Comprendre l’architecture des systèmes et protocoles informatiques</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Compétences Entreprises -->
+    <h2 id="entreprise">Compétences Acquises en Entreprise</h2>
+
+    <div class="formation-container">
+      <div class="formation-title">🛠️ Apprenti Technicien Boucle Locale Cuivre</div>
+      <div class="formation-content">
+        <ul>
+          <li>🛠️Réalisation de travaux de production et de distribution sur le réseau cuivre</li>
+          <li>🔌Raccordement des lignes ADSL et VDSL pour les abonnés</li>
+          <li>🔍 Diagnostic des pannes sur le réseau cuivre</li>
+          <li>📝Rédaction de rapports techniques après intervention</li>
+          <li>⚠️Application rigoureuse des règles de sécurité en boucle locale</li>
+          <li>🤝Travail en équipe et communication avec les clients et les superviseurs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="formation-container">
+      <div class="formation-title">🛠️ Apprenti Technicien Ligne Terminale Cuivre</div>
+      <div class="formation-content">
+        <ul>
+          <li>🔧Installation du réseau télécom en cuivre</li>
+          <li>🛠️Maintenance et dépannage des lignes terminales cuivre</li>
+          <li>🔍Diagnostic des pannes et réalisation de tests de performance</li>
+          <li>📝 Rédaction de rapports d’intervention détaillés</li>
+          <li>📋Application des procédures techniques et réglementaires</li>
+          <li>🤝Amélioration de la relation client lors des interventions</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Mon ePortfolio</p>
+  </footer>
 
 </body>
 
