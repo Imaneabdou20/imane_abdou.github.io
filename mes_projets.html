@@ -1,119 +1,292 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Projets</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        header, footer {
-            background: #2f00ff;
-            color: white;
-            padding: 15px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #0037ff9d;
-            font-weight: bold;
-        }
-        .container {
-            padding: 20px;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .status {
-            font-weight: bold;
-            padding: 5px;
-            border-radius: 5px;
-        }
-        .valid {
-            color: green;
-        }
-        .pending {
-            color: orange;
-        }
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 15px;
-            background: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mes Projets</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* HEADER */
+    header {
+      background-color: rgba(0, 123, 255, 0.4);
+      color: #111;
+      padding: 30px 0;
+      box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
+      font-weight: 700;
+    }
+
+    /* NAVIGATION PRINCIPALE */
+    nav.main-nav {
+      background-color: #000;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px #222;
+    }
+    nav.main-nav a {
+      margin: 0 18px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav.main-nav a:hover,
+    nav.main-nav a:focus {
+      color: #4a90ff;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* CONTENU PRINCIPAL */
+    .container {
+      max-width: 700px;
+      margin: 30px auto 60px;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #2f00ff;
+    }
+
+    .project {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+      transition: transform 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgb(0 0 0 / 0.15);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .status {
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background-color: #e6f4ea; /* Vert clair */
+      color: #2d7a2d; /* Vert foncé */
+      box-shadow: 0 0 5px #a2d39c66;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0 12px 10px 0;
+      padding: 12px 25px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgb(0 123 255 / 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: #0056b3;
+      box-shadow: 0 6px 10px rgb(0 86 179 / 0.6);
+      outline: none;
+    }
+
+    footer {
+      background-color: #2f00ff;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 -2px 5px rgb(47 0 255 / 0.4);
+      font-weight: 500;
+    }
+
+    /* SOUS-NAVIGATION des projets Semestre 1 & 2 */
+    .sub-nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0 20px;
+      flex-wrap: wrap;
+    }
+    .sub-nav button {
+      padding: 10px 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      box-shadow: 0 3px 6px rgb(0 123 255 / 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .sub-nav button:hover,
+    .sub-nav button:focus {
+      background-color: #0056b3;
+      box-shadow: 0 6px 12px rgb(0 86 179 / 0.7);
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+      .project {
+        padding: 20px 15px;
+      }
+      .btn {
+        margin: 8px 8px 8px 0;
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+      nav.main-nav a {
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+      .sub-nav {
+        gap: 20px;
+      }
+      .sub-nav button {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Mes Projets</h1>
-    </header>
+  <header>
+    <h1>Mes Projets</h1>
+  </header>
 
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="eportfolio.html">Retour à l'ePortfolio</a>
-    </nav>
+  <nav class="main-nav">
+    <a href="index.html">Accueil</a>
+    <a href="eportfolio.html">Retour à l'ePortfolio</a>
+  </nav>
 
-    <div class="container">
-        <h2>Liste de mes projets</h2>
-        
-        <div class="project">
-            <h3>SAE 1.01 - Hygiène informatique et cybersécurité</h3>
-            <p class="status valid">✔ Validée</p>
-            <a href="#" class="btn">Voir la vidéo</a>
-            <a href="#" class="btn">Voir le compte rendu</a>
-        </div>
-        
-        <div class="project">
-            <h3>SAE 1.02 - Réseaux informatiques</h3>
-            <p class="status pending">✔ Validée</p>
-            <a href="#" class="btn">Voir la vidéo</a>
-            <a href="#" class="btn">Voir le compte rendu</a>
-        </div>
-        
-        <div class="project">
-            <h3>SAE 1.03 - Transmission de données</h3>
-            <p class="status pending">✔ Validée</p>
-            <a href="#" class="btn">Voir la vidéo</a>
-            <a href="#" class="btn">Voir le compte rendu</a>
-        </div>
-        
-        <div class="project">
-            <h3>SAE 104 Se présenter sur internet</h3>
-            <p class="status pending">✔ Validée</p>
-            <a href="#" class="btn">Voir la vidéo</a>
-            <a href="#" class="btn">Voir le compte rendu</a>
-        </div>
-        
-        <div class="project">
-            <h3>SAE 1.05 - Chiffrement des données</h3>
-            <p class="status pending">✔ Validée</p>
-            <a href="#" class="btn">Voir la vidéo</a>
-            <a href="#" class="btn">Voir le compte rendu</a>
-        </div>
+  <div class="container">
+    <h2>Liste de mes projets</h2>
+
+    <!-- Projets Semestre 1 -->
+    <div id="semestre-1-projects">
+      <div class="project">
+        <h3>SAE 1.01 - Hygiène informatique et cybersécurité</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 1.02 - Réseaux informatiques</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 1.03 - Transmission de données</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 104 - Se présenter sur internet</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 1.05 - Chiffrement des données</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; ImaneProduction 2024</p>
-    </footer>
+    <!-- Sous-navigation pour Semestres -->
+    <div class="sub-nav">
+      <button onclick="showProjects('semestre-1-projects', 'semestre-2-projects')">Projet Semestre 1 (SAE 1xx)</button>
+      <button onclick="showProjects('semestre-2-projects', 'semestre-1-projects')">Projet Semestre 2 (SAE 2xx)</button>
+    </div>
+
+    <!-- Projets Semestre 2 (initialement cachés) -->
+    <div id="semestre-2-projects" style="display:none;">
+      <div class="project">
+        <h3>SAE 201 – Construire un réseau informatique pour une petite structure</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 202 – Mesurer et caractériser un signal ou un système</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 203 – Mettre en place une solution informatique pour l’entreprise</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE 204 – Projet intégratif</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+      </div>
+      <div class="project">
+        <h3>SAE - Portfolio</h3>
+        <p class="status">✔ Validée</p>
+        <a href="#" class="btn" onclick="showAlert(event, true)">Voir la vidéo</a>
+        <a href="#" class="btn" onclick="showAlert(event, true)">Voir le compte rendu</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; ImaneProduction 2024</p>
+  </footer>
+
+  <script>
+    function showProjects(showId, hideId) {
+      document.getElementById(showId).style.display = 'block';
+      document.getElementById(hideId).style.display = 'none';
+    }
+
+    function showAlert(event, isPortfolio) {
+      event.preventDefault();
+      if (isPortfolio) {
+        alert("Vous êtes en train de naviguer dans ce projet car c'est ce magnifique site internet.");
+      } else {
+        alert("Le propriétaire n'a pas encore mis de contenu ici.");
+      }
+    }
+  </script>
 </body>
 </html>
