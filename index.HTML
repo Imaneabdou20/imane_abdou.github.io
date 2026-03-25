@@ -1,48 +1,1935 @@
 <!DOCTYPE html>
 <html lang="fr">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABDOU IMANE</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABDOU IMANE – ePortfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══ VARIABLES ═══ */
+:root {
+  --navy:        #003f87;
+  --navy-dark:   #002a5c;
+  --navy-light:  #1a5fa8;
+  --navy-pale:   #e8f0fb;
+  --orange:      #e05c1a;
+  --orange-pale: #fdf1eb;
+  --red:         #c0392b;
+  --white:       #ffffff;
+  --off-white:   #f7f9fc;
+  --grey-light:  #edf1f7;
+  --grey:        #6b7a99;
+  --grey-dark:   #3a4560;
+  --text:        #1e2a42;
+  --border:      #c5d4ea;
+  --border-strong: #003f87;
+  --shadow:      0 2px 16px rgba(0,63,135,0.10);
+  --shadow-lg:   0 8px 40px rgba(0,63,135,0.15);
+  --radius:      10px;
+  --radius-lg:   16px;
+}
 
+/* ═══ RESET ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ═══ NAV ═══ */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: var(--white);
+  border-bottom: 3px solid var(--navy);
+  box-shadow: 0 2px 12px rgba(0,63,135,0.10);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--navy);
+  letter-spacing: .04em;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--orange); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: var(--grey-dark);
+  text-decoration: none;
+  font-size: .82rem;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 6px;
+  transition: all .18s;
+  white-space: nowrap;
+}
+.nav-links a:hover { background: var(--navy-pale); color: var(--navy); }
+.nav-links a.active { background: var(--navy); color: var(--white); }
+.btn-admin {
+  background: var(--navy) !important;
+  color: var(--white) !important;
+  border: none;
+  padding: 6px 14px !important;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: .02em;
+  transition: background .18s;
+}
+.btn-admin:hover { background: var(--orange) !important; }
+
+/* ═══ PAGES ═══ */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 0 60px;
+  animation: fadeIn .3s ease;
+}
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+.page-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ═══ PAGE HEADER ═══ */
+.page-header {
+  padding: 36px 0 30px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.page-header h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  line-height: 1.1;
+}
+.page-header h1 span { color: var(--orange); }
+.page-header-bar {
+  width: 48px; height: 4px;
+  background: var(--orange);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+/* ═══ HERO ═══ */
+#page-accueil { background: var(--white); }
+.hero-wrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 52px 0 44px;
+}
+.hero-photo-frame {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  border: 4px solid var(--navy);
+  box-shadow: 6px 6px 0 var(--orange);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.hero-photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-name {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--navy-dark);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.hero-name span { color: var(--orange); }
+.hero-role {
+  font-size: 1rem;
+  color: var(--grey);
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+.hero-bio {
+  background: var(--navy-pale);
+  border-left: 4px solid var(--navy);
+  padding: 18px 22px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: .94rem;
+  line-height: 1.75;
+  color: var(--grey-dark);
+  margin-bottom: 24px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 26px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .9rem;
+  border: none;
+  cursor: pointer;
+  transition: background .18s, transform .18s;
+  box-shadow: 3px 3px 0 var(--orange);
+}
+.hero-cta:hover { background: var(--navy-dark); transform: translate(-1px,-1px); }
+
+/* ═══ CARDS ═══ */
+.card-list { display: flex; flex-direction: column; gap: 20px; }
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow);
+  transition: box-shadow .18s, border-left-color .18s;
+}
+.card:hover { box-shadow: var(--shadow-lg); border-left-color: var(--orange); }
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 4px;
+}
+.card-meta {
+  font-size: .82rem;
+  color: var(--grey);
+  margin-bottom: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.card-meta-item { display: flex; align-items: center; gap: 5px; }
+.card-body { font-size: .9rem; color: var(--grey-dark); line-height: 1.65; }
+.card-body ul { list-style: none; padding: 0; }
+.card-body ul li {
+  padding: 3px 0 3px 16px;
+  position: relative;
+  font-size: .88rem;
+}
+.card-body ul li::before {
+  content: '–';
+  position: absolute; left: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+.tag {
+  display: inline-block;
+  background: var(--navy-pale);
+  color: var(--navy);
+  border: 1px solid var(--border);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-weight: 600;
+}
+.tag.orange { background: var(--orange-pale); color: var(--orange); border-color: #f0c4ad; }
+
+/* ═══ COMPETENCES ═══ */
+.comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.comp-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: box-shadow .18s;
+}
+.comp-card:hover { box-shadow: var(--shadow-lg); }
+.comp-card-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: .9rem;
+}
+.comp-card-body {
+  padding: 16px 18px;
+}
+.comp-card-body ul { list-style: none; padding: 0; }
+.comp-card-body ul li {
+  font-size: .85rem;
+  color: var(--grey-dark);
+  padding: 4px 0 4px 14px;
+  position: relative;
+  border-bottom: 1px solid var(--grey-light);
+}
+.comp-card-body ul li:last-child { border-bottom: none; }
+.comp-card-body ul li::before { content: '›'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+
+/* ═══ CERTIF ═══ */
+.certif-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+.certif-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  width: 210px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all .18s;
+}
+.certif-card:hover { box-shadow: var(--shadow-lg); border-color: var(--navy); transform: translateY(-3px); }
+.certif-card img { width: 80px; margin-bottom: 14px; }
+.certif-card p { font-size: .88rem; color: var(--grey-dark); font-weight: 500; }
+
+/* ═══ PROJETS ═══ */
+.sem-tabs { display: flex; gap: 8px; margin-bottom: 28px; }
+.sem-tab {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--grey-dark);
+  padding: 9px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: .88rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: all .18s;
+}
+.sem-tab.active, .sem-tab:hover {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.projets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px; }
+.projet-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all .2s;
+  cursor: pointer;
+}
+.projet-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--navy); }
+.projet-card-img {
+  width: 100%; height: 160px;
+  object-fit: cover;
+  background: var(--navy-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey);
+  font-size: .85rem;
+  font-weight: 500;
+}
+.projet-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.projet-card-img-placeholder {
+  width: 100%; height: 160px;
+  background: linear-gradient(135deg, var(--navy-pale) 0%, #dce8f8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.projet-card-body { padding: 18px 20px; }
+.projet-card-body h3 { font-size: .98rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 8px; }
+.projet-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #eafaf0;
+  color: #1a7a40;
+  border: 1px solid #a8dfc0;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.projet-desc {
+  font-size: .84rem;
+  color: var(--grey);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.btn-view-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: background .18s;
+  text-decoration: none;
+}
+.btn-view-pdf:hover { background: var(--orange); }
+
+/* ═══ PDF VIEWER MODAL ═══ */
+#pdf-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(10,20,50,0.6);
+  align-items: center;
+  justify-content: center;
+}
+#pdf-modal.open { display: flex; }
+.pdf-modal-box {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius-lg);
+  width: 92vw;
+  max-width: 880px;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.pdf-modal-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 14px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.pdf-modal-header h3 { font-size: .95rem; font-weight: 700; }
+.pdf-close {
+  background: var(--orange);
+  border: none;
+  color: var(--white);
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s;
+}
+.pdf-close:hover { background: var(--red); }
+.pdf-viewer-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: #e8ecf2;
+}
+.pdf-viewer-wrap iframe {
+  width: 100%; height: 100%;
+  border: none;
+}
+.pdf-no-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--grey);
+  font-size: .95rem;
+  gap: 12px;
+}
+
+/* ═══ AUTO-EVAL ═══ */
+.eval-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.eval-tab {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--grey-dark);
+  padding: 7px 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: .82rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: all .18s;
+}
+.eval-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.eval-table-wrap { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; overflow-x: auto; }
+.eval-table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.eval-table thead { background: var(--navy); }
+.eval-table th { color: var(--white); padding: 12px 16px; text-align: left; font-weight: 700; font-size: .82rem; letter-spacing: .03em; }
+.eval-table td { padding: 10px 16px; border-bottom: 1px solid var(--grey-light); color: var(--grey-dark); vertical-align: middle; }
+.eval-table tr:last-child td { border-bottom: none; }
+.eval-table tr:hover td { background: var(--navy-pale); }
+.eval-table tr.block-row td { background: var(--orange-pale); color: var(--orange); font-weight: 700; }
+.eval-table input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--navy); cursor: pointer; }
+.eval-section-header { grid-column: 1/-1; }
+
+/* ═══ CONTACT ═══ */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: start; }
+.contact-info-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.contact-info-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: 16px; }
+.contact-info-card li { list-style: none; margin-bottom: 12px; font-size: .9rem; color: var(--grey-dark); }
+.contact-info-card li strong { color: var(--navy-dark); }
+.contact-info-card a { color: var(--orange); text-decoration: none; font-weight: 600; }
+.form-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.form-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: 20px; }
+.fg { margin-bottom: 16px; }
+.fg label { display: block; font-size: .78rem; color: var(--grey); font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+.fg input, .fg textarea {
+  width: 100%;
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .92rem;
+  color: var(--text);
+  transition: border-color .18s;
+}
+.fg input:focus, .fg textarea:focus { outline: none; border-color: var(--navy); background: var(--white); }
+.fg textarea { resize: vertical; min-height: 110px; }
+.btn-send {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s;
+  box-shadow: 3px 3px 0 var(--orange);
+}
+.btn-send:hover { background: var(--navy-dark); }
+
+/* ═══ FOOTER ═══ */
+footer {
+  background: var(--navy-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 18px;
+  font-size: .82rem;
+  margin-top: 40px;
+}
+
+/* ═══════════════════════════════════
+   ADMIN LOGIN
+═══════════════════════════════════ */
+#admin-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(5,15,40,0.7);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+#admin-login.open { display: flex; }
+.login-card {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+  width: 360px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.login-card h2 { color: var(--navy-dark); font-size: 1.3rem; margin-bottom: 6px; }
+.login-card p { color: var(--grey); font-size: .85rem; margin-bottom: 26px; }
+.login-card input {
+  width: 100%;
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .92rem;
+  color: var(--text);
+  margin-bottom: 12px;
+  transition: border-color .18s;
+}
+.login-card input:focus { outline: none; border-color: var(--navy); }
+.login-card .btn-login {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s;
+  margin-bottom: 10px;
+  box-shadow: 3px 3px 0 var(--orange);
+}
+.login-card .btn-login:hover { background: var(--navy-dark); }
+.login-error { color: var(--red); font-size: .82rem; display: none; margin-top: 6px; }
+.btn-cancel-plain { background: none; border: none; color: var(--grey); font-size: .83rem; cursor: pointer; text-decoration: underline; font-family: 'Outfit', sans-serif; }
+
+/* ═══════════════════════════════════
+   ADMIN PANEL
+═══════════════════════════════════ */
+#admin-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  background: var(--white);
+  flex-direction: column;
+}
+#admin-panel.open { display: flex; }
+
+.admin-topbar {
+  background: var(--navy-dark);
+  color: var(--white);
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  flex-shrink: 0;
+  border-bottom: 3px solid var(--orange);
+}
+.admin-topbar h2 { font-size: 1rem; font-weight: 700; }
+.btn-logout {
+  background: var(--orange);
+  border: none;
+  color: var(--white);
+  padding: 7px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .82rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: background .18s;
+}
+.btn-logout:hover { background: var(--red); }
+
+.admin-body { display: flex; flex: 1; overflow: hidden; }
+
+.admin-sidebar {
+  width: 220px;
+  min-width: 220px;
+  background: var(--off-white);
+  border-right: 1.5px solid var(--border);
+  overflow-y: auto;
+  padding: 20px 0;
+}
+.sidebar-label {
+  font-size: .7rem;
+  font-weight: 800;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: 0 18px;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.sidebar-label:first-child { margin-top: 0; }
+.sidebar-item {
+  display: block;
+  padding: 9px 18px;
+  color: var(--grey-dark);
+  font-size: .88rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all .15s;
+}
+.sidebar-item:hover { background: var(--navy-pale); color: var(--navy); }
+.sidebar-item.active { background: var(--navy-pale); color: var(--navy); border-left-color: var(--orange); font-weight: 700; }
+
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 36px;
+  background: var(--white);
+}
+
+.admin-sec { display: none; }
+.admin-sec.active { display: block; }
+
+.admin-sec-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 4px;
+}
+.admin-sec-sub { color: var(--grey); font-size: .85rem; margin-bottom: 26px; }
+
+/* Admin form fields */
+.af { margin-bottom: 16px; }
+.af label {
+  display: block;
+  font-size: .73rem;
+  color: var(--grey);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 5px;
+}
+.af input, .af textarea, .af select {
+  width: 100%;
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .9rem;
+  color: var(--text);
+  transition: border-color .18s;
+}
+.af input:focus, .af textarea:focus, .af select:focus { outline: none; border-color: var(--navy); }
+.af textarea { resize: vertical; min-height: 80px; }
+.af select option { background: var(--white); }
+
+/* File input */
+.file-input-wrap {
+  position: relative;
+}
+.file-input-wrap input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.file-input-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--navy-pale);
+  border: 1.5px dashed var(--navy);
+  border-radius: 7px;
+  padding: 12px 16px;
+  color: var(--navy);
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s;
+}
+.file-input-btn:hover { background: #d6e5f8; }
+.file-preview {
+  font-size: .78rem;
+  color: var(--orange);
+  margin-top: 5px;
+  font-weight: 600;
+  min-height: 18px;
+}
+
+/* Admin item card */
+.admin-item {
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+.admin-item-info { flex: 1; min-width: 0; }
+.admin-item-title { font-weight: 700; color: var(--navy-dark); font-size: .92rem; margin-bottom: 3px; }
+.admin-item-sub { font-size: .8rem; color: var(--grey); }
+.admin-item-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.btn-ae {
+  background: var(--navy-pale);
+  border: 1px solid var(--border);
+  color: var(--navy);
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .77rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: all .15s;
+}
+.btn-ae:hover { background: var(--navy); color: var(--white); }
+.btn-del {
+  background: #fef2f2;
+  border: 1px solid #fcc;
+  color: var(--red);
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .77rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: all .15s;
+}
+.btn-del:hover { background: var(--red); color: var(--white); }
+
+/* Add/Save buttons */
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--navy);
+  border: none;
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: .88rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  transition: background .18s;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 0 var(--orange);
+}
+.btn-add:hover { background: var(--navy-dark); }
+.btn-save {
+  background: var(--navy);
+  border: none;
+  color: var(--white);
+  padding: 11px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
+  transition: background .18s;
+  margin-right: 8px;
+  box-shadow: 2px 2px 0 var(--orange);
+}
+.btn-save:hover { background: var(--navy-dark); }
+.btn-cancel-sm {
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  color: var(--grey-dark);
+  padding: 11px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: .88rem;
+  transition: all .15s;
+}
+
+/* Modal */
+.admin-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(5,15,40,0.55);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+.admin-modal-overlay.open { display: flex; }
+.modal-card {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px;
+  width: 94vw;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+.modal-card h3 { font-size: 1.1rem; color: var(--navy-dark); font-weight: 800; margin-bottom: 22px; }
+
+/* Eval add row form */
+.eval-add-row {
+  background: var(--navy-pale);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+.eval-add-row h4 { color: var(--navy); font-size: .9rem; font-weight: 700; margin-bottom: 14px; }
+.eval-add-grid { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: end; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 600;
+  z-index: 9999;
+  border-left: 4px solid var(--orange);
+  animation: toastIn .3s ease, toastOut 3s ease 1.8s forwards;
+  pointer-events: none;
+}
+@keyframes toastIn { from { opacity:0; transform:translateX(30px); } to { opacity:1; transform:translateX(0); } }
+@keyframes toastOut { to { opacity:0; transform:translateY(8px); } }
+
+/* Dashboard stats */
+.dash-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 14px; margin-bottom: 28px; }
+.dash-stat {
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-top: 3px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .15s;
+}
+.dash-stat:hover { border-top-color: var(--orange); box-shadow: var(--shadow); }
+.dash-stat .num { font-size: 1.8rem; font-weight: 800; color: var(--navy); }
+.dash-stat .lbl { font-size: .78rem; color: var(--grey); font-weight: 600; margin-top: 4px; }
+
+/* Divider */
+.divider { height: 1px; background: var(--grey-light); margin: 28px 0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  #nav { padding: 0 16px; }
+  .nav-links a:not(.btn-admin) { display: none; }
+  .hero-wrap { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+  .hero-photo-frame { margin: 0 auto; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .admin-sidebar { width: 180px; min-width: 180px; }
+  .admin-content { padding: 20px; }
+}
+</style>
+</head>
 <body>
 
-    <header>
-        <h1>Bienvenue sur mon ePortfolio</h1>
-    </header>
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="nav">
+  <a class="nav-logo" onclick="showPage('accueil')">ABDOU <span>IMANE</span></a>
+  <div class="nav-links">
+    <a href="#" onclick="return showPage('accueil')" data-page="accueil" class="active">Accueil</a>
+    <a href="#" onclick="return showPage('formation')" data-page="formation">Formation</a>
+    <a href="#" onclick="return showPage('experience')" data-page="experience">Expérience</a>
+    <a href="#" onclick="return showPage('competences')" data-page="competences">Compétences</a>
+    <a href="#" onclick="return showPage('certifications')" data-page="certifications">Certifications</a>
+    <a href="#" onclick="return showPage('auto-eval')" data-page="auto-eval">Auto Évaluation</a>
+    <a href="#" onclick="return showPage('projets')" data-page="projets">Mes Projets</a>
+    <a href="#" onclick="return showPage('contact')" data-page="contact">Contact</a>
+    <a href="#" class="btn-admin" onclick="openLogin();return false">Administration</a>
+  </div>
+</nav>
 
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="formation.html">Formation</a>
-        <a href="experience.html">Expérience</a>
-        <a href="competences.html">Compétences</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="eportfolio.html">Eportfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-<div class="container">
-    <!-- Cadre pour la photo de profil -->
-    <div style="text-align: center; margin-bottom: 00px;">
-        <img src="photo_profil.jpeg" alt="Photo de profil Abdou Imane"
-             style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid #003f87; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" />
+<!-- ══════════════════════════════════
+     PAGES
+══════════════════════════════════ -->
+
+<!-- ACCUEIL -->
+<div id="page-accueil" class="page active">
+  <div class="page-inner">
+    <div class="hero-wrap">
+      <div>
+        <div class="hero-photo-frame">
+          <img id="hero-img" src="photo_profil.jpeg" alt="Abdou Imane"
+               onerror="this.src='https://ui-avatars.com/api/?name=AI&background=003f87&color=fff&size=160'">
+        </div>
+      </div>
+      <div>
+        <div class="hero-name" id="hero-name">ABDOU <span>IMANE</span></div>
+        <div class="hero-role" id="hero-role">Étudiant BUT Réseaux & Télécommunications · IUT de La Réunion</div>
+        <div class="hero-bio" id="hero-bio">
+          Je suis Abdou Imane, étudiant en deuxième année, passionné par l'électrotechnique, les réseaux et les télécommunications. Curieux, motivé et toujours en quête de nouvelles connaissances, je m'intéresse à tout ce qui touche aux technologies modernes et aux innovations dans le domaine de la connectivité.
+        </div>
+        <button class="hero-cta" onclick="downloadCV()">Télécharger le CV</button>
+      </div>
     </div>
-
-    <h2>Bienvenue sur ma page WEB !</h2>
-
-    <div class="blue-box" style="background-color: #003f87; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-        <p>Je suis Abdou Imane, étudiant en deuxiéme année, passionné par l'électrotechnique, les réseaux et les télécommunications. 
-        Curieux, motivé et toujours en quête de nouvelles connaissances, je m'intéresse à tout ce qui touche aux technologies modernes 
-        et aux innovations dans le domaine de la connectivité. À travers ce site interactif, découvrez mon parcours, mes compétences, mes projets 
-        et mes ambitions. N'hésitez pas à explorer et à en apprendre davantage sur ce qui m'anime !</p>
-    </div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
 </div>
-    <footer>
-        <p>&copy; ImaneProduction 2024</p>
-    </footer>
 
+<!-- FORMATION -->
+<div id="page-formation" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div>
+        <h1>Ma <span>Formation</span></h1>
+        <div class="page-header-bar"></div>
+      </div>
+    </div>
+    <div class="card-list" id="formation-list"></div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="page-experience" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div><h1>Mon <span>Expérience</span></h1><div class="page-header-bar"></div></div>
+    </div>
+    <div class="card-list" id="experience-list"></div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- COMPETENCES -->
+<div id="page-competences" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div><h1>Mes <span>Compétences</span></h1><div class="page-header-bar"></div></div>
+    </div>
+    <div class="comp-grid" id="competences-list"></div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="page-certifications" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div><h1>Mes <span>Certifications</span></h1><div class="page-header-bar"></div></div>
+    </div>
+    <div class="certif-grid" id="certif-list"></div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- AUTO EVAL -->
+<div id="page-auto-eval" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div><h1>Auto <span>Évaluation</span></h1><div class="page-header-bar"></div></div>
+    </div>
+    <div class="eval-tabs" id="eval-tabs-nav"></div>
+    <div id="eval-tables-wrap"></div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- PROJETS -->
+<div id="page-projets" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div><h1>Mes <span>Projets</span></h1><div class="page-header-bar"></div></div>
+    </div>
+    <div class="sem-tabs" id="sem-tabs"></div>
+    <div id="projets-wrap"></div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div><h1>Me <span>Contacter</span></h1><div class="page-header-bar"></div></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <h3>Coordonnées</h3>
+        <ul>
+          <li><strong>Email :</strong><br><a href="mailto:iabdou@rt-iut.re">iabdou@rt-iut.re</a></li>
+          <li><strong>LinkedIn :</strong><br><a href="https://www.linkedin.com/in/imane-a-590911341" target="_blank">linkedin.com/in/imane-a</a></li>
+          <li><strong>Localisation :</strong><br>La Réunion, France</li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <h3>Envoyer un message</h3>
+        <form action="https://formspree.io/f/xeoekqvb" method="POST">
+          <div class="fg"><label>Nom</label><input type="text" name="name" placeholder="Votre nom" required></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="votre@email.com" required></div>
+          <div class="fg"><label>Message</label><textarea name="message" placeholder="Votre message..." required></textarea></div>
+          <button type="submit" class="btn-send">Envoyer le message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer><p>&copy; ImaneProduction 2024</p></footer>
+</div>
+
+<!-- ══════════════ PDF MODAL ══════════════ -->
+<div id="pdf-modal">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <h3 id="pdf-modal-title">Document</h3>
+      <button class="pdf-close" onclick="closePdfModal()">X</button>
+    </div>
+    <div class="pdf-viewer-wrap" id="pdf-viewer-wrap">
+      <div class="pdf-no-file" id="pdf-no-file">Aucun document disponible pour ce projet.</div>
+      <iframe id="pdf-iframe" style="display:none"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ADMIN LOGIN ══════════════ -->
+<div id="admin-login">
+  <div class="login-card">
+    <h2>Espace Administration</h2>
+    <p>Connectez-vous pour modifier votre portfolio</p>
+    <input type="text" id="l-user" placeholder="Identifiant" autocomplete="username">
+    <input type="password" id="l-pass" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="btn-login" onclick="doLogin()">Connexion</button>
+    <div class="login-error" id="login-err">Identifiants incorrects</div>
+    <br><button class="btn-cancel-plain" onclick="closeLogin()">Annuler</button>
+  </div>
+</div>
+
+<!-- ══════════════ ADMIN PANEL ══════════════ -->
+<div id="admin-panel">
+  <div class="admin-topbar">
+    <h2>Administration du Portfolio — ABDOU IMANE</h2>
+    <button class="btn-logout" onclick="adminLogout()">Deconnexion</button>
+  </div>
+  <div class="admin-body">
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+      <div class="sidebar-label">General</div>
+      <div class="sidebar-item active" onclick="showSec('dash',this)">Tableau de bord</div>
+      <div class="sidebar-item" onclick="showSec('profil',this)">Profil</div>
+      <div class="sidebar-label">Contenu</div>
+      <div class="sidebar-item" onclick="showSec('a-formation',this)">Formation</div>
+      <div class="sidebar-item" onclick="showSec('a-experience',this)">Experience</div>
+      <div class="sidebar-item" onclick="showSec('a-competences',this)">Competences</div>
+      <div class="sidebar-item" onclick="showSec('a-certif',this)">Certifications</div>
+      <div class="sidebar-item" onclick="showSec('a-projets',this)">Projets SAE</div>
+      <div class="sidebar-label">Evaluation</div>
+      <div class="sidebar-item" onclick="showSec('a-eval',this)">Auto Evaluation</div>
+    </div>
+    <!-- Content -->
+    <div class="admin-content">
+
+      <!-- DASH -->
+      <div class="admin-sec active" id="asec-dash">
+        <div class="admin-sec-title">Tableau de bord</div>
+        <div class="admin-sec-sub">Vue d'ensemble de votre portfolio</div>
+        <div class="dash-stats">
+          <div class="dash-stat" onclick="showSec('a-formation',document.querySelectorAll('.sidebar-item')[3])">
+            <div class="num" id="ds-f">0</div><div class="lbl">Formations</div>
+          </div>
+          <div class="dash-stat" onclick="showSec('a-experience',document.querySelectorAll('.sidebar-item')[4])">
+            <div class="num" id="ds-e">0</div><div class="lbl">Experiences</div>
+          </div>
+          <div class="dash-stat" onclick="showSec('a-certif',document.querySelectorAll('.sidebar-item')[6])">
+            <div class="num" id="ds-c">0</div><div class="lbl">Certifications</div>
+          </div>
+          <div class="dash-stat" onclick="showSec('a-projets',document.querySelectorAll('.sidebar-item')[7])">
+            <div class="num" id="ds-p">0</div><div class="lbl">Projets</div>
+          </div>
+        </div>
+        <div style="background:var(--navy-pale);border:1.5px solid var(--border);border-left:4px solid var(--orange);border-radius:var(--radius);padding:18px 22px;">
+          <p style="color:var(--grey-dark);font-size:.9rem;line-height:1.7">Utilisez le menu de gauche pour modifier chaque section. Les fichiers PDF et images joints sont stockes localement dans votre navigateur. Identifiants : <strong>imane / admin2024</strong></p>
+        </div>
+      </div>
+
+      <!-- PROFIL -->
+      <div class="admin-sec" id="asec-profil">
+        <div class="admin-sec-title">Modifier le profil</div>
+        <div class="admin-sec-sub">Informations affichees sur la page d'accueil</div>
+        <div class="af"><label>Nom affiche</label><input type="text" id="p-name" value="ABDOU IMANE"></div>
+        <div class="af"><label>Sous-titre / Role</label><input type="text" id="p-role" value="Etudiant BUT Reseaux &amp; Telecommunications · IUT de La Reunion"></div>
+        <div class="af"><label>Biographie</label><textarea id="p-bio" style="min-height:120px">Je suis Abdou Imane, etudiant en deuxieme annee, passionne par l'electrotechnique, les reseaux et les telecommunications. Curieux, motive et toujours en quete de nouvelles connaissances, je m'interesse a tout ce qui touche aux technologies modernes et aux innovations dans le domaine de la connectivite.</textarea></div>
+        <div class="af">
+          <label>Photo de profil</label>
+          <div class="file-input-wrap">
+            <div class="file-input-btn">Choisir une photo (JPG, PNG)</div>
+            <input type="file" accept="image/*" id="p-photo-file" onchange="handlePhotoUpload(this)">
+          </div>
+          <div class="file-preview" id="p-photo-preview"></div>
+        </div>
+        <button class="btn-save" onclick="saveProfil()">Sauvegarder</button>
+      </div>
+
+      <!-- FORMATION -->
+      <div class="admin-sec" id="asec-a-formation">
+        <div class="admin-sec-title">Formations</div>
+        <div class="admin-sec-sub">Ajoutez, modifiez ou supprimez des formations</div>
+        <button class="btn-add" onclick="openModal('formation')">+ Ajouter une formation</button>
+        <div id="a-formation-list"></div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="admin-sec" id="asec-a-experience">
+        <div class="admin-sec-title">Experiences professionnelles</div>
+        <div class="admin-sec-sub">Ajoutez, modifiez ou supprimez des experiences</div>
+        <button class="btn-add" onclick="openModal('experience')">+ Ajouter une experience</button>
+        <div id="a-experience-list"></div>
+      </div>
+
+      <!-- COMPETENCES -->
+      <div class="admin-sec" id="asec-a-competences">
+        <div class="admin-sec-title">Blocs de competences</div>
+        <div class="admin-sec-sub">Ajoutez, modifiez ou supprimez des blocs</div>
+        <button class="btn-add" onclick="openModal('competence')">+ Ajouter un bloc</button>
+        <div id="a-competences-list"></div>
+      </div>
+
+      <!-- CERTIF -->
+      <div class="admin-sec" id="asec-a-certif">
+        <div class="admin-sec-title">Certifications</div>
+        <div class="admin-sec-sub">Ajoutez ou supprimez des certifications</div>
+        <button class="btn-add" onclick="openModal('certif')">+ Ajouter une certification</button>
+        <div id="a-certif-list"></div>
+      </div>
+
+      <!-- PROJETS -->
+      <div class="admin-sec" id="asec-a-projets">
+        <div class="admin-sec-title">Projets SAE</div>
+        <div class="admin-sec-sub">Gerez vos projets avec images et PDF integres</div>
+        <button class="btn-add" onclick="openModal('projet')">+ Ajouter un projet</button>
+        <div id="a-projets-list"></div>
+      </div>
+
+      <!-- AUTO EVAL -->
+      <div class="admin-sec" id="asec-a-eval">
+        <div class="admin-sec-title">Auto Evaluation</div>
+        <div class="admin-sec-sub">Gerez les annees/semestres et les modules d'evaluation</div>
+        <button class="btn-add" onclick="openModal('eval-annee')">+ Ajouter une annee / section</button>
+        <div id="a-eval-list"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="admin-modal-overlay" id="main-modal">
+  <div class="modal-card" id="modal-inner"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+/* ═══ INITIAL DATA ═══ */
+const DEFAULT_DATA = {
+  hero: {
+    name: 'ABDOU IMANE',
+    role: 'Etudiant BUT Reseaux & Telecommunications · IUT de La Reunion',
+    bio: 'Je suis Abdou Imane, etudiant en deuxieme annee, passionne par l\'electrotechnique, les reseaux et les telecommunications. Curieux, motive et toujours en quete de nouvelles connaissances, je m\'interesse a tout ce qui touche aux technologies modernes et aux innovations dans le domaine de la connectivite. A travers ce site interactif, decouvrez mon parcours, mes competences, mes projets et mes ambitions.',
+    photo: null // base64 stored here
+  },
+  formation: [
+    { id:1, titre:'BUT Reseaux et Telecommunications', etablissement:'IUT de La Reunion, Saint-Pierre', periode:'Aout 2024 - Juillet 2027', description:'Formation en 3 ans, visant a former des techniciens et ingenieurs specialises dans les reseaux, la cybersecurite, les telecommunications et les systemes d\'information.', competences:'Installer, configurer et exploiter des equipements reseaux et telecoms\nAnalyser et resoudre des problemes reseau\nTravailler en mode projet et en equipe\nComprendre les concepts de base des telecommunications\nMaitriser les systemes d\'exploitation fondamentaux' },
+    { id:2, titre:'BTS Electrotechnique', etablissement:'Lycee Polyvalent de Dembeni, Mayotte', periode:'Aout 2022 - Juin 2024', description:'', competences:'Communication technique et gestion de projets\nConception et dimensionnement d\'installations electriques\nMaintenance et depannage des systemes electriques\nAutomatisation et regulation des systemes' },
+    { id:3, titre:'Baccalaureat STI2D (Option SIN)', etablissement:'Lycee Polyvalent de Dembeni, Mayotte', periode:'Obtenu Juin 2022', description:'', competences:'Resolution de problemes techniques complexes\nAnalyse et gestion des donnees\nConception et developpement de systemes numeriques\nMaitrise des reseaux et systemes communicants' },
+    { id:4, titre:'Diplome National du Brevet', etablissement:'College de M\'Tsangamouji, Mayotte', periode:'Obtenu 2017', description:'Mention Bien', competences:'' }
+  ],
+  experience: [
+    { id:1, titre:'Apprenti Technicien Boucle Locale Cuivre', entreprise:'SARL SNCT, Pamandzi, Mayotte', contrat:'Contrat en alternance', periode:'Sept. 2023 - Aout 2024 (1 an)', missions:'Realisation des travaux de production, distribution et transport du reseau\nRaccordement des lignes ADSL et VDSL pour le reseau Orange\nDiagnostic des pannes et redaction de rapports\nRespect des normes de securite en boucle locale' },
+    { id:2, titre:'Apprenti Technicien Ligne Terminale Cuivre', entreprise:'SARL SNCT, Pamandzi, Mayotte', contrat:'Contrat en alternance', periode:'Aout 2022 - Juil. 2023 (1 an)', missions:'Installation, maintenance et depannage du reseau telecom en cuivre\nDiagnostic des pannes et realisation de tests de performance\nRedaction de rapports d\'intervention detailles\nAmelioration de la relation client lors des interventions' }
+  ],
+  competences: [
+    { id:1, titre:'Partager le savoir-faire', items:'Expliquer avec clarte des concepts techniques (reseaux, telecoms, maintenance)\nAccompagner et former des collegues, stagiaires ou clients lors des interventions\nCreer des supports pedagogiques (rapports, procedures, schemas explicatifs, documentations)\nInitier aux bonnes pratiques de securite dans le cadre des chantiers et interventions' },
+    { id:2, titre:'Conception et Etude du projet', items:'Interpreter un besoin client/utilisateur, un CCTP, un cahier des charges\nDimensionner les constituants d\'un ouvrage, d\'une installation, d\'un equipement electrique\nProposer l\'architecture d\'un ouvrage, d\'une installation, d\'un equipement electrique\nRealiser les documents du projet/chantier (Plans, Schemas, Maquette virtuelle, etc.)' },
+    { id:3, titre:'Reseaux', items:'Configurer et administrer un reseau local (LAN)\nInstaller et securiser des equipements reseau\nSuperviser et diagnostiquer un reseau\nMettre en oeuvre des solutions de communication (VoIP, Internet)' },
+    { id:4, titre:'Telecommunications', items:'Mettre en oeuvre et configurer des systemes de telephonie sur IP\nIdentifier les differentes technologies de transmission\nUtiliser des outils de mesure et de test (multimetre, generateur de signal, Wireshark)' },
+    { id:5, titre:'Programmation', items:'Developper des scripts et outils pour l\'automatisation reseau' }
+  ],
+  certifications: [
+    { id:1, nom:'Certification PIX', logo:'https://sciences.edu.umontpellier.fr/files/2024/06/logo_article_pix.png' },
+    { id:2, nom:'Certification PIX (Avancee)', logo:'https://sciences.edu.umontpellier.fr/files/2024/06/logo_article_pix.png' },
+    { id:3, nom:'MOOC de l\'ANSSI', logo:'https://www.sgdsn.gouv.fr/files/styles/ds_image_paragraphe/public/files/Notre_Organisation/logo_anssi.png?itok=1nxb2Mtt' }
+  ],
+  projets: [
+    { id:1, sem:'s1', titre:'SAE 1.01 - Hygiene informatique et cybersecurite', statut:'Validee', description:'Sensibilisation aux bonnes pratiques de securite informatique, protection contre les cybermenaces et hygiene numerique au quotidien.', pdfData:null, imageData:null },
+    { id:2, sem:'s1', titre:'SAE 1.02 - Reseaux informatiques', statut:'Validee', description:'Initiation aux reseaux informatiques, configuration de base et comprerhension des protocoles de communication.', pdfData:null, imageData:null },
+    { id:3, sem:'s1', titre:'SAE 1.03 - Transmission de donnees', statut:'Validee', description:'Decouverte des dispositifs de transmission, etude des signaux et des supports de communication.', pdfData:null, imageData:null },
+    { id:4, sem:'s1', titre:'SAE 1.04 - Se presenter sur internet', statut:'Validee', description:'Realisation d\'un ePortfolio personnel, apprentissage des technologies web HTML/CSS/JS.', pdfData:'__portfolio__', imageData:null },
+    { id:5, sem:'s1', titre:'SAE 1.05 - Chiffrement des donnees', statut:'Validee', description:'Etude des methodes de chiffrement, traitement et protection des donnees numeriques.', pdfData:null, imageData:null },
+    { id:6, sem:'s2', titre:'SAE 201 - Construire un reseau informatique pour une petite structure', statut:'Validee', description:'Conception et mise en place d\'une infrastructure reseau complete pour une PME.', pdfData:null, imageData:null },
+    { id:7, sem:'s2', titre:'SAE 202 - Mesurer et caracteriser un signal ou un systeme', statut:'Validee', description:'Utilisation d\'instruments de mesure pour analyser des signaux et caracteriser des systemes electroniques.', pdfData:null, imageData:null },
+    { id:8, sem:'s2', titre:'SAE 203 - Mettre en place une solution informatique pour l\'entreprise', statut:'Validee', description:'Deploiement d\'une solution informatique adaptee aux besoins d\'une entreprise.', pdfData:null, imageData:null },
+    { id:9, sem:'s2', titre:'SAE 204 - Projet integratif', statut:'Validee', description:'Projet multi-blocs integrant les competences des trois domaines du BUT RT.', pdfData:null, imageData:null }
+  ],
+  evalSections: [
+    {
+      id:'r1xx', label:'Ressources S1 (R1XX)',
+      modules:[
+        {id:'r101', nom:'R101 - Initiation aux reseaux informatiques', val:true, moy:false, nval:false},
+        {id:'r102', nom:'R102 - Principes et architecture des reseaux', val:true, moy:false, nval:false},
+        {id:'r103', nom:'R103 - Reseaux locaux et equipements actifs', val:true, moy:false, nval:false},
+        {id:'r104', nom:'R104 - Fondamentaux des systemes electroniques', val:false, moy:true, nval:false},
+        {id:'r105', nom:'R105 - Supports de transmission pour les reseaux', val:false, moy:true, nval:false},
+        {id:'r106', nom:'R106 - Architecture des systemes numeriques', val:false, moy:false, nval:true},
+        {id:'r107', nom:'R107 - Fondamentaux de la programmation', val:true, moy:false, nval:false},
+        {id:'r108', nom:'R108 - Bases des systemes d\'exploitation', val:true, moy:false, nval:false},
+        {id:'r109', nom:'R109 - Introduction aux technologies web', val:true, moy:false, nval:false},
+        {id:'r110', nom:'R110 - Anglais technique 1', val:true, moy:false, nval:false},
+        {id:'r111', nom:'R111 - Expression, culture, communication professionnelles', val:true, moy:false, nval:false},
+        {id:'r112', nom:'R112 - Projet personnel et professionnel', val:true, moy:false, nval:false},
+        {id:'r113', nom:'R113 - Mathematiques du signal', val:false, moy:false, nval:true},
+        {id:'r114', nom:'R114 - Mathematiques des transmissions', val:false, moy:false, nval:true},
+        {id:'r115', nom:'R115 - Gestion de projet 1', val:true, moy:false, nval:false}
+      ]
+    },
+    {
+      id:'r2xx', label:'Ressources S2 (R2XX)',
+      modules:[
+        {id:'r201', nom:'R201 - Technologies de l\'internet', val:false, moy:false, nval:false},
+        {id:'r202', nom:'R202 - Administration systeme et virtualisation', val:false, moy:false, nval:false},
+        {id:'r203', nom:'R203 - Bases des services reseaux', val:false, moy:false, nval:false},
+        {id:'r204', nom:'R204 - Initiation a la telephonie d\'entreprise', val:false, moy:false, nval:false},
+        {id:'r205', nom:'R205 - Signaux et systemes pour les transmissions', val:false, moy:false, nval:false},
+        {id:'r206', nom:'R206 - Numerisation de l\'information', val:false, moy:false, nval:false},
+        {id:'r207', nom:'R207 - Sources de donnees', val:false, moy:false, nval:false},
+        {id:'r208', nom:'R208 - Analyse et traitement de donnees structurees', val:false, moy:false, nval:false},
+        {id:'r209', nom:'R209 - Initiation au developpement web', val:false, moy:false, nval:false},
+        {id:'r210', nom:'R210 - Anglais technique 2', val:false, moy:false, nval:false},
+        {id:'r211', nom:'R211 - Expression, culture, communication 2', val:false, moy:false, nval:false},
+        {id:'r212', nom:'R212 - Projet tutore', val:false, moy:false, nval:false},
+        {id:'r213', nom:'R213 - Mathematiques pour l\'informatique', val:false, moy:false, nval:false},
+        {id:'r214', nom:'R214 - Analyse des signaux', val:false, moy:false, nval:false}
+      ]
+    },
+    {
+      id:'blocs', label:'Blocs de Competences',
+      modules:[
+        {id:'b1', nom:'U1RTB1 - Bloc 1 : Administrer les reseaux et l\'internet', val:false, moy:false, nval:false, isBlock:true},
+        {id:'b2', nom:'U1RTB2 - Bloc 2 : Connecter les entreprises et les usagers', val:false, moy:false, nval:false, isBlock:true},
+        {id:'b3', nom:'U1RTB3 - Bloc 3 : Creer des outils et applications informatiques', val:false, moy:false, nval:false, isBlock:true}
+      ]
+    }
+  ]
+};
+
+/* ═══ STATE ═══ */
+let D = JSON.parse(JSON.stringify(DEFAULT_DATA));
+(function(){
+  try {
+    const s = localStorage.getItem('pf_data_v3');
+    if(s) D = JSON.parse(s);
+  } catch(e){}
+})();
+function save() { try { localStorage.setItem('pf_data_v3', JSON.stringify(D)); } catch(e){ alert('Stockage plein. Reduisez la taille des images/PDF.'); } }
+
+/* ═══ FILE → BASE64 ═══ */
+function fileToB64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+/* ═══ NAV ═══ */
+function showPage(p) {
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.nav-links a[data-page]').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  const lnk = document.querySelector(`.nav-links a[data-page="${p}"]`);
+  if(lnk) lnk.classList.add('active');
+  renderPage(p);
+  return false;
+}
+function renderPage(p) {
+  if(p==='formation') renderFormation();
+  if(p==='experience') renderExperience();
+  if(p==='competences') renderCompetences();
+  if(p==='certifications') renderCertif();
+  if(p==='auto-eval') renderEval();
+  if(p==='projets') renderProjets();
+}
+
+/* ═══ RENDER HERO ═══ */
+function applyHero() {
+  document.getElementById('hero-name').innerHTML = D.hero.name.replace(' ','&nbsp;<span>') + '</span>';
+  document.getElementById('hero-role').textContent = D.hero.role;
+  document.getElementById('hero-bio').textContent = D.hero.bio;
+  if(D.hero.photo) document.getElementById('hero-img').src = D.hero.photo;
+}
+
+/* ═══ RENDER FORMATION ═══ */
+function renderFormation() {
+  document.getElementById('formation-list').innerHTML = D.formation.map(f=>`
+    <div class="card">
+      <div class="card-title">${f.titre}</div>
+      <div class="card-meta">
+        <span class="card-meta-item">${f.etablissement}</span>
+        <span class="tag orange">${f.periode}</span>
+      </div>
+      ${f.description?`<div class="card-body" style="margin-bottom:12px;font-style:italic;color:var(--grey)">${f.description}</div>`:''}
+      ${f.competences?`<div class="card-body"><ul>${f.competences.split('\n').filter(Boolean).map(c=>`<li>${c}</li>`).join('')}</ul></div>`:''}
+    </div>
+  `).join('');
+}
+
+/* ═══ RENDER EXPERIENCE ═══ */
+function renderExperience() {
+  document.getElementById('experience-list').innerHTML = D.experience.map(e=>`
+    <div class="card">
+      <div class="card-title">${e.titre}</div>
+      <div class="card-meta">
+        <span class="card-meta-item">${e.entreprise}</span>
+        <span class="tag">${e.contrat}</span>
+        <span class="tag orange">${e.periode}</span>
+      </div>
+      <div class="card-body"><ul>${e.missions.split('\n').filter(Boolean).map(m=>`<li>${m}</li>`).join('')}</ul></div>
+    </div>
+  `).join('');
+}
+
+/* ═══ RENDER COMPETENCES ═══ */
+function renderCompetences() {
+  document.getElementById('competences-list').innerHTML = D.competences.map(c=>`
+    <div class="comp-card">
+      <div class="comp-card-header">${c.titre}</div>
+      <div class="comp-card-body"><ul>${c.items.split('\n').filter(Boolean).map(i=>`<li>${i}</li>`).join('')}</ul></div>
+    </div>
+  `).join('');
+}
+
+/* ═══ RENDER CERTIF ═══ */
+function renderCertif() {
+  document.getElementById('certif-list').innerHTML = D.certifications.map(c=>`
+    <div class="certif-card">
+      <img src="${c.logo}" alt="${c.nom}" onerror="this.style.display='none'">
+      <p>${c.nom}</p>
+    </div>
+  `).join('');
+}
+
+/* ═══ RENDER EVAL ═══ */
+let currentEvalSection = 0;
+function renderEval() {
+  const nav = document.getElementById('eval-tabs-nav');
+  nav.innerHTML = D.evalSections.map((s,i)=>`
+    <button class="eval-tab ${i===currentEvalSection?'active':''}" onclick="switchEval(${i},this)">${s.label}</button>
+  `).join('');
+  renderEvalTable();
+}
+function switchEval(idx, btn) {
+  currentEvalSection = idx;
+  document.querySelectorAll('.eval-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderEvalTable();
+}
+function renderEvalTable() {
+  const sec = D.evalSections[currentEvalSection];
+  const wrap = document.getElementById('eval-tables-wrap');
+  wrap.innerHTML = `
+    <div class="eval-table-wrap">
+      <table class="eval-table">
+        <thead><tr><th style="width:60%">Module</th><th>Validee</th><th>Moy. Validee</th><th>Non Validee</th></tr></thead>
+        <tbody>
+          ${sec.modules.map(m=>`
+            <tr class="${m.isBlock?'block-row':''}">
+              <td>${m.nom}</td>
+              <td><input type="checkbox" ${m.val?'checked':''} onchange="toggleEval('${sec.id}','${m.id}','val',this.checked)"></td>
+              <td><input type="checkbox" ${m.moy?'checked':''} onchange="toggleEval('${sec.id}','${m.id}','moy',this.checked)"></td>
+              <td><input type="checkbox" ${m.nval?'checked':''} onchange="toggleEval('${sec.id}','${m.id}','nval',this.checked)"></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+function toggleEval(secId, modId, field, val) {
+  const sec = D.evalSections.find(s=>s.id===secId);
+  if(!sec) return;
+  const mod = sec.modules.find(m=>m.id===modId);
+  if(!mod) return;
+  mod[field] = val;
+  save();
+}
+
+/* ═══ RENDER PROJETS ═══ */
+let currentSem = 's1';
+function renderProjets() {
+  const sems = [...new Set(D.projets.map(p=>p.sem))];
+  const semLabels = { s1:'Semestre 1 (SAE 1xx)', s2:'Semestre 2 (SAE 2xx)', s3:'Semestre 3 (SAE 3xx)', s4:'Semestre 4 (SAE 4xx)' };
+  document.getElementById('sem-tabs').innerHTML = sems.map(s=>`
+    <button class="sem-tab ${s===currentSem?'active':''}" onclick="switchSem('${s}',this)">${semLabels[s]||s}</button>
+  `).join('');
+  const items = D.projets.filter(p=>p.sem===currentSem);
+  document.getElementById('projets-wrap').innerHTML = `<div class="projets-grid">${items.map(p=>`
+    <div class="projet-card" onclick="openProjectModal(${p.id})">
+      ${p.imageData
+        ? `<div class="projet-card-img"><img src="${p.imageData}" alt="${p.titre}"></div>`
+        : `<div class="projet-card-img-placeholder">Aucune image</div>`
+      }
+      <div class="projet-card-body">
+        <h3>${p.titre}</h3>
+        <div class="projet-status">Valide — ${p.statut}</div>
+        <p class="projet-desc">${p.description||''}</p>
+        ${p.pdfData && p.pdfData !== '__portfolio__'
+          ? `<button class="btn-view-pdf" onclick="event.stopPropagation();openPdf('${p.id}')">Voir le document PDF</button>`
+          : p.pdfData === '__portfolio__'
+          ? `<button class="btn-view-pdf" onclick="event.stopPropagation();alert('Vous naviguez dans ce projet !')">Vous y etes deja !</button>`
+          : `<span style="font-size:.78rem;color:var(--grey)">Aucun document joint</span>`
+        }
+      </div>
+    </div>
+  `).join('')}</div>`;
+}
+function switchSem(s, btn) {
+  currentSem = s;
+  document.querySelectorAll('.sem-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderProjets();
+}
+
+/* ═══ PROJECT DETAIL MODAL ═══ */
+function openProjectModal(id) {
+  const p = D.projets.find(x=>x.id===id);
+  if(!p) return;
+  if(p.pdfData && p.pdfData !== '__portfolio__') {
+    openPdf(id);
+  }
+}
+
+/* ═══ PDF MODAL ═══ */
+function openPdf(id) {
+  const p = D.projets.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('pdf-modal-title').textContent = p.titre;
+  const iframe = document.getElementById('pdf-iframe');
+  const nofile = document.getElementById('pdf-no-file');
+  if(p.pdfData && p.pdfData !== '__portfolio__') {
+    iframe.src = p.pdfData;
+    iframe.style.display = 'block';
+    nofile.style.display = 'none';
+  } else {
+    iframe.style.display = 'none';
+    nofile.style.display = 'flex';
+  }
+  document.getElementById('pdf-modal').classList.add('open');
+}
+function closePdfModal() {
+  document.getElementById('pdf-modal').classList.remove('open');
+  document.getElementById('pdf-iframe').src = '';
+}
+document.getElementById('pdf-modal').addEventListener('click', function(e){
+  if(e.target===this) closePdfModal();
+});
+
+/* ═══ DOWNLOAD CV ═══ */
+function downloadCV() {
+  const a = document.createElement('a');
+  a.href = 'Documents/CV.pdf';
+  a.download = 'CV_Abdou_Imane.pdf';
+  a.click();
+}
+
+/* ═══ ADMIN AUTH ═══ */
+const CREDS = { u:'imane', p:'admin2024' };
+function openLogin() {
+  document.getElementById('admin-login').classList.add('open');
+  document.getElementById('l-user').value = '';
+  document.getElementById('l-pass').value = '';
+  document.getElementById('login-err').style.display = 'none';
+}
+function closeLogin() { document.getElementById('admin-login').classList.remove('open'); }
+function doLogin() {
+  const u = document.getElementById('l-user').value.trim();
+  const p = document.getElementById('l-pass').value;
+  if(u===CREDS.u && p===CREDS.p) {
+    closeLogin();
+    openAdmin();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+  }
+}
+function openAdmin() {
+  document.getElementById('admin-panel').classList.add('open');
+  updateDash();
+  renderAdminAll();
+  syncAdminProfil();
+}
+function adminLogout() { document.getElementById('admin-panel').classList.remove('open'); }
+
+/* ═══ ADMIN NAV ═══ */
+function showSec(name, el) {
+  document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(s=>s.classList.remove('active'));
+  document.getElementById('asec-'+name).classList.add('active');
+  el.classList.add('active');
+}
+
+/* ═══ DASHBOARD ═══ */
+function updateDash() {
+  document.getElementById('ds-f').textContent = D.formation.length;
+  document.getElementById('ds-e').textContent = D.experience.length;
+  document.getElementById('ds-c').textContent = D.certifications.length;
+  document.getElementById('ds-p').textContent = D.projets.length;
+}
+
+/* ═══ SYNC PROFIL FORM ═══ */
+function syncAdminProfil() {
+  document.getElementById('p-name').value = D.hero.name;
+  document.getElementById('p-role').value = D.hero.role;
+  document.getElementById('p-bio').value = D.hero.bio;
+}
+
+/* ═══ SAVE PROFIL ═══ */
+async function handlePhotoUpload(input) {
+  if(!input.files[0]) return;
+  const b64 = await fileToB64(input.files[0]);
+  D.hero.photo = b64;
+  document.getElementById('p-photo-preview').textContent = 'Photo chargee : ' + input.files[0].name;
+  save();
+}
+function saveProfil() {
+  D.hero.name = document.getElementById('p-name').value;
+  D.hero.role = document.getElementById('p-role').value;
+  D.hero.bio = document.getElementById('p-bio').value;
+  save();
+  applyHero();
+  toast('Profil mis a jour !');
+}
+
+/* ═══ ADMIN RENDER ALL ═══ */
+function renderAdminAll() {
+  renderAdminFormation();
+  renderAdminExperience();
+  renderAdminCompetences();
+  renderAdminCertif();
+  renderAdminProjets();
+  renderAdminEval();
+}
+
+function renderAdminFormation() {
+  document.getElementById('a-formation-list').innerHTML = D.formation.map(f=>`
+    <div class="admin-item">
+      <div class="admin-item-info">
+        <div class="admin-item-title">${f.titre}</div>
+        <div class="admin-item-sub">${f.etablissement} — ${f.periode}</div>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-ae" onclick="openModal('formation',${f.id})">Modifier</button>
+        <button class="btn-del" onclick="delItem('formation',${f.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+function renderAdminExperience() {
+  document.getElementById('a-experience-list').innerHTML = D.experience.map(e=>`
+    <div class="admin-item">
+      <div class="admin-item-info">
+        <div class="admin-item-title">${e.titre}</div>
+        <div class="admin-item-sub">${e.entreprise} — ${e.periode}</div>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-ae" onclick="openModal('experience',${e.id})">Modifier</button>
+        <button class="btn-del" onclick="delItem('experience',${e.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+function renderAdminCompetences() {
+  document.getElementById('a-competences-list').innerHTML = D.competences.map(c=>`
+    <div class="admin-item">
+      <div class="admin-item-info">
+        <div class="admin-item-title">${c.titre}</div>
+        <div class="admin-item-sub">${c.items.split('\n').filter(Boolean).length} element(s)</div>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-ae" onclick="openModal('competence',${c.id})">Modifier</button>
+        <button class="btn-del" onclick="delItem('competences',${c.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+function renderAdminCertif() {
+  document.getElementById('a-certif-list').innerHTML = D.certifications.map(c=>`
+    <div class="admin-item">
+      <div class="admin-item-info">
+        <div class="admin-item-title">${c.nom}</div>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-ae" onclick="openModal('certif',${c.id})">Modifier</button>
+        <button class="btn-del" onclick="delItem('certifications',${c.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+function renderAdminProjets() {
+  document.getElementById('a-projets-list').innerHTML = D.projets.map(p=>`
+    <div class="admin-item">
+      <div class="admin-item-info">
+        <div class="admin-item-title">${p.titre}</div>
+        <div class="admin-item-sub">
+          ${p.sem.toUpperCase()} — ${p.statut}
+          ${p.pdfData && p.pdfData !== '__portfolio__' ? ' | PDF joint' : ''}
+          ${p.imageData ? ' | Image jointe' : ''}
+        </div>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-ae" onclick="openModal('projet',${p.id})">Modifier</button>
+        <button class="btn-del" onclick="delItem('projets',${p.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+function renderAdminEval() {
+  document.getElementById('a-eval-list').innerHTML = D.evalSections.map(s=>`
+    <div class="admin-item">
+      <div class="admin-item-info">
+        <div class="admin-item-title">${s.label}</div>
+        <div class="admin-item-sub">${s.modules.length} module(s)</div>
+      </div>
+      <div class="admin-item-actions">
+        <button class="btn-ae" onclick="openModal('eval-section','${s.id}')">Gerer les modules</button>
+        <button class="btn-del" onclick="delEvalSection('${s.id}')">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ═══ DELETE ═══ */
+function delItem(key, id) {
+  if(!confirm('Supprimer cet element ?')) return;
+  D[key] = D[key].filter(x=>x.id!==id);
+  save(); updateDash(); renderAdminAll();
+  renderPage(currentPage());
+  toast('Element supprime.');
+}
+function delEvalSection(id) {
+  if(!confirm('Supprimer cette section ?')) return;
+  D.evalSections = D.evalSections.filter(s=>s.id!==id);
+  save(); renderAdminEval();
+  toast('Section supprimee.');
+}
+function currentPage() {
+  const p = document.querySelector('.page.active');
+  return p ? p.id.replace('page-','') : 'accueil';
+}
+
+/* ═══ MODAL ═══ */
+let mType=null, mId=null;
+function openModal(type, id=null) {
+  mType=type; mId=id;
+  const box = document.getElementById('modal-inner');
+  let html = '';
+  if(type==='formation') {
+    const f = id ? D.formation.find(x=>x.id===id) : {};
+    html = `<h3>${id?'Modifier':'Ajouter'} une formation</h3>
+      <div class="af"><label>Titre</label><input id="m0" value="${(f.titre||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Etablissement</label><input id="m1" value="${(f.etablissement||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Periode</label><input id="m2" value="${(f.periode||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Description (optionnel)</label><textarea id="m3">${f.description||''}</textarea></div>
+      <div class="af"><label>Competences (une par ligne)</label><textarea id="m4" style="min-height:120px">${f.competences||''}</textarea></div>
+      <button class="btn-save" onclick="saveModal()">Sauvegarder</button>
+      <button class="btn-cancel-sm" onclick="closeModal()">Annuler</button>`;
+  } else if(type==='experience') {
+    const e = id ? D.experience.find(x=>x.id===id) : {};
+    html = `<h3>${id?'Modifier':'Ajouter'} une experience</h3>
+      <div class="af"><label>Titre du poste</label><input id="m0" value="${(e.titre||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Entreprise</label><input id="m1" value="${(e.entreprise||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Type de contrat</label><input id="m2" value="${(e.contrat||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Periode</label><input id="m3" value="${(e.periode||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Missions (une par ligne)</label><textarea id="m4" style="min-height:120px">${e.missions||''}</textarea></div>
+      <button class="btn-save" onclick="saveModal()">Sauvegarder</button>
+      <button class="btn-cancel-sm" onclick="closeModal()">Annuler</button>`;
+  } else if(type==='competence') {
+    const c = id ? D.competences.find(x=>x.id===id) : {};
+    html = `<h3>${id?'Modifier':'Ajouter'} un bloc de competences</h3>
+      <div class="af"><label>Titre du bloc</label><input id="m0" value="${(c.titre||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Competences (une par ligne)</label><textarea id="m1" style="min-height:140px">${c.items||''}</textarea></div>
+      <button class="btn-save" onclick="saveModal()">Sauvegarder</button>
+      <button class="btn-cancel-sm" onclick="closeModal()">Annuler</button>`;
+  } else if(type==='certif') {
+    const c = id ? D.certifications.find(x=>x.id===id) : {};
+    html = `<h3>${id?'Modifier':'Ajouter'} une certification</h3>
+      <div class="af"><label>Nom de la certification</label><input id="m0" value="${(c.nom||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>URL du logo</label><input id="m1" value="${c.logo||''}"></div>
+      <button class="btn-save" onclick="saveModal()">Sauvegarder</button>
+      <button class="btn-cancel-sm" onclick="closeModal()">Annuler</button>`;
+  } else if(type==='projet') {
+    const p = id ? D.projets.find(x=>x.id===id) : {};
+    const sems = ['s1','s2','s3','s4'];
+    html = `<h3>${id?'Modifier':'Ajouter'} un projet SAE</h3>
+      <div class="af"><label>Titre du projet</label><input id="m0" value="${(p.titre||'').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Semestre</label>
+        <select id="m1">
+          ${sems.map(s=>`<option value="${s}" ${p.sem===s?'selected':''}>${s.toUpperCase()} — Semestre ${s.slice(1)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="af"><label>Statut</label><input id="m2" value="${(p.statut||'Validee').replace(/"/g,'&quot;')}"></div>
+      <div class="af"><label>Description</label><textarea id="m3" style="min-height:80px">${p.description||''}</textarea></div>
+      <div class="af">
+        <label>Image d'illustration (JPG, PNG)</label>
+        <div class="file-input-wrap">
+          <div class="file-input-btn">Choisir une image</div>
+          <input type="file" accept="image/*" id="m-img-file">
+        </div>
+        <div class="file-preview" id="m-img-prev">${p.imageData?'Image actuelle chargee':''}</div>
+      </div>
+      <div class="af">
+        <label>Document PDF du compte rendu</label>
+        <div class="file-input-wrap">
+          <div class="file-input-btn">Choisir un fichier PDF</div>
+          <input type="file" accept="application/pdf" id="m-pdf-file">
+        </div>
+        <div class="file-preview" id="m-pdf-prev">${p.pdfData && p.pdfData!=='__portfolio__'?'PDF actuel charge':p.pdfData==='__portfolio__'?'Ce portfolio est le projet':''}</div>
+        <div style="margin-top:8px">
+          <label style="font-size:.76rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.07em">Ou marquer comme "ce portfolio"</label>
+          <input type="checkbox" id="m-is-portfolio" ${p.pdfData==='__portfolio__'?'checked':''} style="margin-left:8px;width:auto"> Ce projet, c'est ce portfolio
+        </div>
+      </div>
+      <button class="btn-save" onclick="saveProjectModal()">Sauvegarder</button>
+      <button class="btn-cancel-sm" onclick="closeModal()">Annuler</button>`;
+  } else if(type==='eval-annee') {
+    html = `<h3>Ajouter une annee / section d'evaluation</h3>
+      <div class="af"><label>Identifiant unique (ex: r3xx, blocs2)</label><input id="m0" placeholder="r3xx"></div>
+      <div class="af"><label>Intitule de la section</label><input id="m1" placeholder="Ressources S3 (R3XX)"></div>
+      <button class="btn-save" onclick="saveModal()">Sauvegarder</button>
+      <button class="btn-cancel-sm" onclick="closeModal()">Annuler</button>`;
+  } else if(type==='eval-section') {
+    const sec = D.evalSections.find(s=>s.id===id);
+    html = `<h3>Gerer les modules : ${sec.label}</h3>
+      <div id="eval-mods-list">
+        ${sec.modules.map(m=>`
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--grey-light)">
+            <span style="font-size:.86rem;color:var(--grey-dark);flex:1">${m.nom}</span>
+            <button class="btn-del" style="margin-left:12px;padding:4px 10px" onclick="delModule('${sec.id}','${m.id}')">Supprimer</button>
+          </div>
+        `).join('')}
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:10px">Ajouter un module</p>
+        <div class="af"><label>Nom du module</label><input id="new-mod-nom" placeholder="R301 - Intitule du module"></div>
+        <div class="af"><label>Type de ligne</label>
+          <select id="new-mod-type">
+            <option value="">Module normal</option>
+            <option value="block">Bloc de competences</option>
+          </select>
+        </div>
+        <button class="btn-save" style="margin-top:4px" onclick="addModule('${sec.id}')">Ajouter le module</button>
+      </div>
+      <div style="margin-top:16px"><button class="btn-cancel-sm" onclick="closeModal()">Fermer</button></div>`;
+  }
+  document.getElementById('modal-inner').innerHTML = html;
+  document.getElementById('main-modal').classList.add('open');
+}
+function closeModal() { document.getElementById('main-modal').classList.remove('open'); }
+document.getElementById('main-modal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+
+async function saveModal() {
+  const t = mType, id = mId;
+  const nid = Date.now();
+  if(t==='formation') {
+    const obj = { id:id||nid, titre:v('m0'), etablissement:v('m1'), periode:v('m2'), description:v('m3'), competences:v('m4') };
+    if(id) { const i=D.formation.findIndex(x=>x.id===id); D.formation[i]=obj; }
+    else D.formation.push(obj);
+    renderFormation(); renderAdminFormation();
+  } else if(t==='experience') {
+    const obj = { id:id||nid, titre:v('m0'), entreprise:v('m1'), contrat:v('m2'), periode:v('m3'), missions:v('m4') };
+    if(id) { const i=D.experience.findIndex(x=>x.id===id); D.experience[i]=obj; }
+    else D.experience.push(obj);
+    renderExperience(); renderAdminExperience();
+  } else if(t==='competence') {
+    const obj = { id:id||nid, titre:v('m0'), items:v('m1') };
+    if(id) { const i=D.competences.findIndex(x=>x.id===id); D.competences[i]=obj; }
+    else D.competences.push(obj);
+    renderCompetences(); renderAdminCompetences();
+  } else if(t==='certif') {
+    const obj = { id:id||nid, nom:v('m0'), logo:v('m1') };
+    if(id) { const i=D.certifications.findIndex(x=>x.id===id); D.certifications[i]=obj; }
+    else D.certifications.push(obj);
+    renderCertif(); renderAdminCertif();
+  } else if(t==='eval-annee') {
+    const newSec = { id:v('m0'), label:v('m1'), modules:[] };
+    if(!newSec.id || !newSec.label) { alert('Remplissez tous les champs.'); return; }
+    D.evalSections.push(newSec);
+    renderAdminEval(); renderEval();
+  }
+  save(); updateDash(); closeModal();
+  toast('Modifications sauvegardees !');
+}
+
+async function saveProjectModal() {
+  const id = mId;
+  const nid = Date.now();
+  const existing = id ? D.projets.find(x=>x.id===id) : {};
+  const isPortfolio = document.getElementById('m-is-portfolio').checked;
+
+  let pdfData = isPortfolio ? '__portfolio__' : (existing.pdfData||null);
+  let imageData = existing.imageData||null;
+
+  const imgFile = document.getElementById('m-img-file').files[0];
+  const pdfFile = document.getElementById('m-pdf-file').files[0];
+  if(imgFile) imageData = await fileToB64(imgFile);
+  if(pdfFile && !isPortfolio) pdfData = await fileToB64(pdfFile);
+  if(isPortfolio) pdfData = '__portfolio__';
+
+  const obj = { id:id||nid, titre:v('m0'), sem:document.getElementById('m1').value, statut:v('m2'), description:v('m3'), pdfData, imageData };
+  if(id) { const i=D.projets.findIndex(x=>x.id===id); D.projets[i]=obj; }
+  else D.projets.push(obj);
+
+  save(); updateDash(); renderAdminProjets(); renderProjets();
+  closeModal();
+  toast('Projet sauvegarde !');
+}
+
+function addModule(secId) {
+  const nom = document.getElementById('new-mod-nom').value.trim();
+  const type = document.getElementById('new-mod-type').value;
+  if(!nom) { alert('Entrez un nom de module.'); return; }
+  const sec = D.evalSections.find(s=>s.id===secId);
+  sec.modules.push({ id:'m'+Date.now(), nom, val:false, moy:false, nval:false, isBlock: type==='block' });
+  save();
+  // Refresh modal
+  openModal('eval-section', secId);
+  toast('Module ajoute !');
+}
+function delModule(secId, modId) {
+  const sec = D.evalSections.find(s=>s.id===secId);
+  sec.modules = sec.modules.filter(m=>m.id!==modId);
+  save();
+  openModal('eval-section', secId);
+  toast('Module supprime.');
+}
+
+function v(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+
+/* ═══ TOAST ═══ */
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className='toast'; t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(), 4500);
+}
+
+/* ═══ INIT ═══ */
+applyHero();
+showPage('accueil');
+renderFormation(); renderExperience(); renderCompetences(); renderCertif();
+</script>
 </body>
-
 </html>

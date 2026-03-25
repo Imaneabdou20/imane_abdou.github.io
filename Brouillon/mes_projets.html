@@ -5,6 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mes Projets</title>
   <style>
+  body {
+   font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+  }
+  header {
+    background-color: #003f87;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  nav.main-nav {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  nav.main-nav a {
+    display: inline-block;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #004080;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  nav.main-nav a:hover,
+  nav.main-nav a.active-main {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+  }
+  nav.sub-nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  nav.sub-nav a {
+    margin: 0 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: background-color 0.3s ease;
+  }
+  nav.sub-nav a.active {
+    background-color: #0056b3;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f0f0f0;
+  }
+  tr.block-row td {
+    background-color: #e8f4ff;
+    font-weight: bold;
+    font-size: 1.05em;
+  }
+  .hidden {
+    display: none;
+  }
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #555;
+    font-size: 0.9em;
+  }
+
     /* Reset & base */
     * {
       box-sizing: border-box;
@@ -44,7 +124,7 @@
     }
     nav.main-nav a:hover,
     nav.main-nav a:focus {
-      color: #4a90ff;
+      color: #004bc3;
       text-decoration: underline;
       outline: none;
     }
@@ -179,6 +259,23 @@
         font-size: 0.9rem;
       }
     }
+    header {
+    background-color: #003f87;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+
+    body
+Specificity: (0,0,1)
+ {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+  } }
+
   </style>
 </head>
 <body>
@@ -186,45 +283,76 @@
     <h1>Mes Projets</h1>
   </header>
 
-  <nav class="main-nav">
-    <a href="index.html">Accueil</a>
-    <a href="eportfolio.html">Retour à l'ePortfolio</a>
-  </nav>
+  <nav>
+        <a href="index.html">Accueil</a>
+        <a href="formation.html">Formation</a>
+        <a href="experience.html">Expérience</a>
+        <a href="competences.html">Compétences</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="Auto_evaluation.html">Auto Évaluation</a>
+        <a href="mes_projets.html">mes projets réaliser </a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-  <div class="container">
-    <h2>Liste de mes projets</h2>
-
-    <!-- Projets Semestre 1 -->
-    <div id="semestre-1-projects">
+ <div id="semestre-1-projects">
       <div class="project">
         <h3>SAE 1.01 - Hygiène informatique et cybersécurité</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+         <a href="#"
+            class="btn"
+            onclick="showAlert(event, false); 
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE101.pdf'; 
+                     a.download='SAE101.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
+      </div>
+
       </div>
       <div class="project">
         <h3>SAE 1.02 - Réseaux informatiques</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+         <a href="#"
+            class="btn"
+            onclick="showAlert(event,false); 
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE102.pdf'; 
+                     a.download='SAE102.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
       <div class="project">
         <h3>SAE 1.03 - Transmission de données</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+         <a href="#"
+            class="btn"
+            onclick=" showAlert(event,false);
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE103.pdf'; 
+                     a.download='SAE103.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
       <div class="project">
         <h3>SAE 104 - Se présenter sur internet</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+        <a href="#" class="btn" onclick="showAlert(event, true)"> vous etes dans le Projet </a>
       </div>
       <div class="project">
         <h3>SAE 1.05 - Chiffrement des données</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+         <a href="#"
+            class="btn"
+            onclick=" showAlert(event,false);
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE105.pdf'; 
+                     a.download='SAE105.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
     </div>
 
@@ -239,33 +367,56 @@
       <div class="project">
         <h3>SAE 201 – Construire un réseau informatique pour une petite structure</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+        <a href="#"
+            class="btn"
+            onclick=" showAlert(event,false);
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE201.pdf'; 
+                     a.download='SAE201.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
       <div class="project">
         <h3>SAE 202 – Mesurer et caractériser un signal ou un système</h3>
-        <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+       <p class="status">✔ Validée</p>
+        <a href="#"
+            class="btn"
+            onclick=" showAlert(event,false);
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE202.pdf'; 
+                     a.download='SAE202.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
       <div class="project">
         <h3>SAE 203 – Mettre en place une solution informatique pour l’entreprise</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+        <a href="#"
+            class="btn"
+            onclick=" showAlert(event,false);
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE201.pdf'; 
+                     a.download='SAE201.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
       <div class="project">
         <h3>SAE 204 – Projet intégratif</h3>
         <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, false)">Voir le compte rendu</a>
+        <a href="#"
+            class="btn"
+            onclick=" showAlert(event,false);
+                     const a=document.createElement('a'); 
+                     a.href='Documents/SAE201.pdf'; 
+                     a.download='SAE201.pdf'; 
+                     a.click();">
+            Télécharger le compte rendu
+         </a>
       </div>
-      <div class="project">
-        <h3>SAE - Portfolio</h3>
-        <p class="status">✔ Validée</p>
-        <a href="#" class="btn" onclick="showAlert(event, true)">Voir la vidéo</a>
-        <a href="#" class="btn" onclick="showAlert(event, true)">Voir le compte rendu</a>
-      </div>
+    
     </div>
   </div>
 
