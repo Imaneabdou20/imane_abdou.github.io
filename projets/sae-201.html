@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAÉ 2.01 – Construire un réseau informatique pour une petite structure | ABDOU IMANE</title>
+<meta name="description" content="Conception sous GNS3 du réseau d'une agence immobilière : 6 VLANs, routage inter-VLAN, pare-feu pfSense et serveurs DHCP, Web et FTP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003f87'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' fill='%23ffffff' text-anchor='middle'%3EI%3Ctspan fill='%23e05c1a'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="../index.html">ABDOU <span>IMANE</span></a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../formation.html">Formation</a>
+    <a href="../experiences.html">Expériences</a>
+    <a href="../competences.html">Compétences</a>
+    <a href="../certifications.html">Certifications</a>
+    <a href="../projets.html" class="active" aria-current="page">Mes Projets</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+<div class="page-inner">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> › <a href="../projets.html">Mes projets</a> › <a href="../projets.html#s2">Semestre 2</a> › SAÉ 2.01</nav>
+
+  <section class="p-hero">
+    <div>
+      <span class="projet-code">SAÉ 2.01 · BUT 1 · Semestre 2</span>
+      <h1>Construire un réseau informatique pour une petite structure</h1>
+      <p class="lead">Concevoir, déployer et tester de bout en bout le réseau du nouveau siège d'une agence immobilière, en solo.</p>
+      <div class="p-meta"><span class="tag orange">Semestre 2</span><span class="tag green">✓ Projet validé</span></div>
+      <p style="font-size:.86rem;color:var(--grey);margin-bottom:18px"><strong style="color:var(--navy-dark)">Équipe :</strong> Projet individuel · Réalisé par Imane ABDOU</p>
+      <div class="btn-row" style="justify-content:flex-start">
+        <a class="btn" href="../pdf/SAE201_Reseau_petite_structure.pdf" data-pdf="../pdf/SAE201_Reseau_petite_structure.pdf" data-title="SAÉ 2.01 – Présentation du projet (7 diapositives)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter le PDF complet</a>
+        <a class="btn btn-ghost" href="#galerie">Voir les illustrations</a>
+      </div>
+    </div>
+    <div class="p-hero-img" data-zoom="../images/sae/sae201-architecture.jpg" data-caption="Architecture du réseau"><img src="../images/sae/sae201-architecture.jpg" alt="Architecture du réseau"></div>
+  </section>
+
+  <div class="facts reveal"><div class="fact"><div class="num">6 VLANs</div><div class="lbl">segmentation par service</div></div><div class="fact"><div class="num">3 serveurs</div><div class="lbl">DHCP, Web, FTP</div></div><div class="fact"><div class="num">4 switchs</div><div class="lbl">3 niveau 2 + 1 niveau 3</div></div><div class="fact"><div class="num">100 %</div><div class="lbl">tests de service validés</div></div></div>
+
+  <h2 class="section-title">Contexte et objectif</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Contexte</h3><p>Une petite entreprise du secteur immobilier s'installe dans un nouveau siège et a besoin d'un réseau informatique complet, organisé par service.</p></div>
+    <div class="info-card accent"><h3>Objectif</h3><p>Segmenter le réseau, assurer la communication entre services, filtrer les accès Internet et fournir les services réseau essentiels (adressage automatique, site Web, partage de fichiers).</p></div>
+  </div>
+
+  <h2 class="section-title">Ma mission</h2>
+  <div class="role-box reveal"><h3>Mon rôle</h3><p>J'ai réalisé ce projet seule, de la conception aux tests :</p><ul><li>Conception de l'architecture et du plan d'adressage par VLAN</li><li>Configuration des commutateurs, du routage inter-VLAN et du pare-feu pfSense</li><li>Installation des serveurs Debian (DHCP, Web, FTP) et des adresses statiques</li><li>Tests de fonctionnement depuis le réseau interne et externe, puis présentation</li></ul></div>
+
+  <h2 class="section-title">Travaux réalisés</h2>
+  <div class="steps reveal"><div class="step"><h4>Analyse du besoin</h4><p>Découpage en VLANs : 10 Direction, 20 Gestion, 30 Commercial, 40 Technique, 50 Zone de transit et 60 DMZ.</p></div><div class="step"><h4>Architecture</h4><p>3 switchs de niveau 2 pour les services, 1 switch de niveau 3 pour le routage inter-VLAN, un pare-feu pfSense et un routeur NAT (C3725) vers Internet.</p></div><div class="step"><h4>Services réseau</h4><p>Serveur DHCP (192.168.10.250) avec une plage par VLAN, serveurs Web (192.168.60.100) et FTP (192.168.60.102) placés en DMZ.</p></div><div class="step"><h4>Tests</h4><p>Attribution DHCP vérifiée, ping inter-VLAN dans les deux sens et accès au site Web depuis un poste interne et depuis le réseau externe.</p></div></div>
+
+  <h2 class="section-title">Outils et technologies</h2>
+  <div class="tags reveal"><span class="tag">GNS3</span><span class="tag">Switch niveau 2 / niveau 3</span><span class="tag">pfSense</span><span class="tag">Cisco C3725 (NAT)</span><span class="tag">Debian</span><span class="tag">DHCP (ISC)</span><span class="tag">HTTP</span><span class="tag">FTP</span></div>
+
+  <h2 class="section-title" id="galerie">Illustrations du projet</h2>
+  <p style="color:var(--grey);font-size:.88rem;margin:-6px 0 16px">Images extraites du rapport. Cliquez pour agrandir.</p>
+  <div class="gallery"><figure data-zoom="../images/sae/sae201-architecture.jpg" data-caption="Architecture du réseau : Topologie GNS3 : VLANs, switchs, pfSense, routeur C3725 et serveurs, avec la liste des équipements."><div class="g-img"><img src="../images/sae/sae201-architecture.jpg" alt="Architecture du réseau" loading="lazy"></div><figcaption><strong>Architecture du réseau</strong>Topologie GNS3 : VLANs, switchs, pfSense, routeur C3725 et serveurs, avec la liste des équipements.</figcaption></figure><figure data-zoom="../images/sae/sae201-introduction.jpg" data-caption="Besoin et segmentation : Contexte de l'entreprise, VLANs et services à mettre en place."><div class="g-img"><img src="../images/sae/sae201-introduction.jpg" alt="Besoin et segmentation" loading="lazy"></div><figcaption><strong>Besoin et segmentation</strong>Contexte de l'entreprise, VLANs et services à mettre en place.</figcaption></figure><figure data-zoom="../images/sae/sae201-config.jpg" data-caption="Configuration des machines : Plages DHCP par VLAN et adresses statiques des serveurs DHCP, Web et FTP."><div class="g-img"><img src="../images/sae/sae201-config.jpg" alt="Configuration des machines" loading="lazy"></div><figcaption><strong>Configuration des machines</strong>Plages DHCP par VLAN et adresses statiques des serveurs DHCP, Web et FTP.</figcaption></figure><figure data-zoom="../images/sae/sae201-tests.jpg" data-caption="Tests des services : Adresses obtenues par DHCP, ping inter-VLAN et accès Web."><div class="g-img"><img src="../images/sae/sae201-tests.jpg" alt="Tests des services" loading="lazy"></div><figcaption><strong>Tests des services</strong>Adresses obtenues par DHCP, ping inter-VLAN et accès Web.</figcaption></figure></div>
+
+  <h2 class="section-title">Difficultés et solutions</h2>
+  <div class="challenges reveal"><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Isoler les services tout en leur permettant de communiquer quand c'est nécessaire.</div><div class="so"><span class="lb">Solution apportée</span>VLAN par service et switch de niveau 3 dédié au routage inter-VLAN, avec une passerelle .254 par sous-réseau.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Exposer un site Web et un FTP sans ouvrir le réseau interne.</div><div class="so"><span class="lb">Solution apportée</span>Serveurs placés dans une DMZ (VLAN 60) et filtrage du trafic entrant et sortant par pfSense.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Garder une infrastructure simple à maintenir et à faire évoluer.</div><div class="so"><span class="lb">Solution apportée</span>Architecture hiérarchique qui facilite l'organisation du câblage, le dépannage et l'ajout d'un nouveau switch.</div></div></div>
+
+  <h2 class="section-title">Résultats obtenus</h2>
+  <ul class="result-list reveal"><li>PC1 (VLAN 10) obtient 192.168.10.110 et PC6 (VLAN 20) 192.168.20.104 par DHCP</li><li>Ping réussi dans les deux sens : le routage inter-VLAN fonctionne</li><li>Site Web accessible depuis le VLAN 10 et depuis le réseau externe</li></ul>
+
+  <h2 class="section-title">Compétences développées</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Compétences</h3><ul class="dash"><li>Conception d'une architecture LAN segmentée</li><li>Plan d'adressage IP et VLAN</li><li>Sécurisation périmétrique (pare-feu, DMZ)</li><li>Déploiement de services réseau sous Linux</li><li>Validation par des tests</li></ul></div>
+    <div class="info-card accent"><h3>Ce que ce projet m'a apporté</h3><p class="quote">Mener un réseau complet seule m'a donné une vision globale : chaque choix d'architecture a un impact direct sur la sécurité, la maintenance et l'évolution.</p></div>
+  </div>
+
+  <div class="pdf-cta reveal">
+    <div><h2>Envie d'aller plus loin ?</h2><p>Le document complet détaille toutes les configurations, mesures et analyses.</p></div>
+    <div class="pdf-group"><div class="pdf-line"><span class="pdf-label">Présentation du projet (7 diapositives)</span><a class="btn btn-sm" href="../pdf/SAE201_Reseau_petite_structure.pdf" data-pdf="../pdf/SAE201_Reseau_petite_structure.pdf" data-title="SAÉ 2.01 – Présentation du projet (7 diapositives)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter</a><a class="btn btn-sm btn-ghost" href="../pdf/SAE201_Reseau_petite_structure.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Télécharger</a></div></div>
+  </div>
+
+  <div class="p-nav"><a href="sae-105.html"><div class="dir">‹ Projet précédent</div><div class="t">SAÉ 1.05 · Traiter des données : chiffrement sous Debian</div></a><a class="next" href="sae-202.html"><div class="dir">Projet suivant ›</div><div class="t">SAÉ 2.02 · Mesurer et caractériser un signal ou un système</div></a></div>
+</div>
+
+</main>
+
+<!-- ══════════════ PIED DE PAGE ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; ImaneProduction 2024 – <span id="year">2026</span> · Imane ABDOU · BUT Réseaux &amp; Télécommunications</p>
+    <p><a href="../projets.html">Projets</a><a href="../pdf/CV_Imane_ABDOU.pdf" target="_blank" rel="noopener">CV</a><a href="../contact.html">Contact</a></p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+<!-- ══════════════ VISIONNEUSE PDF ══════════════ -->
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" aria-label="Visionneuse de document">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <h3>Document</h3>
+      <div class="actions">
+        <a class="pdf-open-new" href="#" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>
+        <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+    <div class="pdf-viewer-wrap"><iframe title="Document PDF" src="about:blank"></iframe></div>
+  </div>
+</div>
+
+<!-- ══════════════ GALERIE (AGRANDISSEMENT) ══════════════ -->
+<div id="lightbox" class="modal" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <div class="lightbox-box">
+    <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+    <button class="lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <img alt="">
+    <button class="lb-next" type="button" aria-label="Image suivante">›</button>
+    <p class="cap"></p>
+  </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

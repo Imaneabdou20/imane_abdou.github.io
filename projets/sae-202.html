@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAÉ 2.02 – Mesurer et caractériser un signal ou un système | ABDOU IMANE</title>
+<meta name="description" content="Simulation et mesure sous MATLAB/Simulink d'une chaîne de transmission vocale : modulation FM, codec G.711 et analyse des signaux point par point.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003f87'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' fill='%23ffffff' text-anchor='middle'%3EI%3Ctspan fill='%23e05c1a'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="../index.html">ABDOU <span>IMANE</span></a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../formation.html">Formation</a>
+    <a href="../experiences.html">Expériences</a>
+    <a href="../competences.html">Compétences</a>
+    <a href="../certifications.html">Certifications</a>
+    <a href="../projets.html" class="active" aria-current="page">Mes Projets</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+<div class="page-inner">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> › <a href="../projets.html">Mes projets</a> › <a href="../projets.html#s2">Semestre 2</a> › SAÉ 2.02</nav>
+
+  <section class="p-hero">
+    <div>
+      <span class="projet-code">SAÉ 2.02 · 20 juin 2025</span>
+      <h1>Mesurer et caractériser un signal ou un système</h1>
+      <p class="lead">Modéliser une chaîne de transmission de la voix et mesurer, étape par étape, ce que deviennent le signal et sa qualité.</p>
+      <div class="p-meta"><span class="tag orange">Semestre 2</span><span class="tag green">✓ Projet validé</span></div>
+      <p style="font-size:.86rem;color:var(--grey);margin-bottom:18px"><strong style="color:var(--navy-dark)">Équipe :</strong> Binôme : ABDOU Imane et DHOIFFIR Owais · Groupe T</p>
+      <div class="btn-row" style="justify-content:flex-start">
+        <a class="btn" href="../pdf/SAE202_Mesure_signal_FM_G711.pdf" data-pdf="../pdf/SAE202_Mesure_signal_FM_G711.pdf" data-title="SAÉ 2.02 – Rapport de mesures (20 pages)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter le PDF complet</a>
+        <a class="btn btn-ghost" href="#galerie">Voir les illustrations</a>
+      </div>
+    </div>
+    <div class="p-hero-img" data-zoom="../images/sae/sae202-mesures-fm.jpg" data-caption="Mesures de la modulation FM"><img src="../images/sae/sae202-mesures-fm.jpg" alt="Mesures de la modulation FM"></div>
+  </section>
+
+  <div class="facts reveal"><div class="fact"><div class="num">1 000 Hz</div><div class="lbl">porteuse FM</div></div><div class="fact"><div class="num">500 Hz</div><div class="lbl">déviation de fréquence</div></div><div class="fact"><div class="num">8 kHz</div><div class="lbl">échantillonnage voix</div></div><div class="fact"><div class="num">6 points</div><div class="lbl">de mesure (A à F)</div></div></div>
+
+  <h2 class="section-title">Contexte et objectif</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Contexte</h3><p>En téléphonie, la voix est filtrée, numérisée, compressée puis transmise : chaque étape modifie le signal. Ce projet consiste à observer et quantifier ces transformations.</p></div>
+    <div class="info-card accent"><h3>Objectif</h3><p>Simuler une modulation FM puis un système émetteur-récepteur vocal avec codec G.711 (loi A), et caractériser les signaux à chaque étape par des mesures.</p></div>
+  </div>
+
+  <h2 class="section-title">Ma mission</h2>
+  <div class="role-box reveal"><h3>Mon rôle</h3><p>En binôme, nous avons construit les modèles et réalisé toutes les mesures :</p><ul><li>Configuration des blocs Simulink : générateur sinusoïdal, modulateur et démodulateur FM passe-bande</li><li>Construction de la chaîne vocale : acquisition audio, gain, codage et décodage G.711, restitution sur haut-parleur</li><li>Mesures à l'oscilloscope virtuel (fréquence, amplitude, RMS, slew rate, temps de montée) aux points A à F</li><li>Interprétation des résultats et rédaction du rapport</li></ul></div>
+
+  <h2 class="section-title">Travaux réalisés</h2>
+  <div class="steps reveal"><div class="step"><h4>Modulation de fréquence</h4><p>Une sinusoïde basse fréquence module une porteuse de 1 000 Hz avec une déviation de 500 Hz ; démodulation par discriminateur avec filtre de Hilbert d'ordre 100, en respectant la règle de Nyquist.</p></div><div class="step"><h4>Acquisition de la voix</h4><p>Bloc Audio Device Reader en mono à 8 000 Hz, 64 échantillons par trame, puis gain appliqué par multiplication élément par élément (constante 0,125).</p></div><div class="step"><h4>Numérisation G.711</h4><p>Encodage PCM int16 vers loi A (uint8) puis décodage, comme en téléphonie numérique ; restitution par Audio Device Writer.</p></div><div class="step"><h4>Analyse temporelle</h4><p>Mesures comparées des signaux A (brut), B (filtré), C et E (codés) et F (décodé).</p></div></div>
+
+  <h2 class="section-title">Outils et technologies</h2>
+  <div class="tags reveal"><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">FM Modulator / Demodulator Passband</span><span class="tag">G.711 Codec (loi A)</span><span class="tag">Audio Device Reader / Writer</span><span class="tag">Oscilloscope (Scope)</span></div>
+
+  <h2 class="section-title" id="galerie">Illustrations du projet</h2>
+  <p style="color:var(--grey);font-size:.88rem;margin:-6px 0 16px">Images extraites du rapport. Cliquez pour agrandir.</p>
+  <div class="gallery"><figure data-zoom="../images/sae/sae202-mesures-fm.jpg" data-caption="Mesures de la modulation FM : Signal modulant, signal modulé et signal démodulé observés à l'oscilloscope."><div class="g-img"><img src="../images/sae/sae202-mesures-fm.jpg" alt="Mesures de la modulation FM" loading="lazy"></div><figcaption><strong>Mesures de la modulation FM</strong>Signal modulant, signal modulé et signal démodulé observés à l'oscilloscope.</figcaption></figure><figure data-zoom="../images/sae/sae202-simulink-fm.jpg" data-caption="Modèle Simulink FM : Générateur sinusoïdal, modulateur et démodulateur FM passe-bande."><div class="g-img"><img src="../images/sae/sae202-simulink-fm.jpg" alt="Modèle Simulink FM" loading="lazy"></div><figcaption><strong>Modèle Simulink FM</strong>Générateur sinusoïdal, modulateur et démodulateur FM passe-bande.</figcaption></figure><figure data-zoom="../images/sae/sae202-chaine-transceiver.jpg" data-caption="Chaîne émetteur-récepteur : Microphone, gain, codage et décodage G.711, haut-parleur."><div class="g-img"><img src="../images/sae/sae202-chaine-transceiver.jpg" alt="Chaîne émetteur-récepteur" loading="lazy"></div><figcaption><strong>Chaîne émetteur-récepteur</strong>Microphone, gain, codage et décodage G.711, haut-parleur.</figcaption></figure><figure data-zoom="../images/sae/sae202-signaux-ab.jpg" data-caption="Signaux A et B : Signal vocal brut puis filtré, avant le codec."><div class="g-img"><img src="../images/sae/sae202-signaux-ab.jpg" alt="Signaux A et B" loading="lazy"></div><figcaption><strong>Signaux A et B</strong>Signal vocal brut puis filtré, avant le codec.</figcaption></figure><figure data-zoom="../images/sae/sae202-signal-c.jpg" data-caption="Signal C : Numérisation par le codec G.711 : apparition des paliers de quantification."><div class="g-img"><img src="../images/sae/sae202-signal-c.jpg" alt="Signal C" loading="lazy"></div><figcaption><strong>Signal C</strong>Numérisation par le codec G.711 : apparition des paliers de quantification.</figcaption></figure><figure data-zoom="../images/sae/sae202-signal-e.jpg" data-caption="Signal E : Signal codé observé après passage par le codec."><div class="g-img"><img src="../images/sae/sae202-signal-e.jpg" alt="Signal E" loading="lazy"></div><figcaption><strong>Signal E</strong>Signal codé observé après passage par le codec.</figcaption></figure></div>
+
+  <h2 class="section-title">Difficultés et solutions</h2>
+  <div class="challenges reveal"><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Démoduler correctement le signal FM sans repliement spectral.</div><div class="so"><span class="lb">Solution apportée</span>Choix d'une fréquence d'échantillonnage supérieure à deux fois la déviation de fréquence (règle de Nyquist).</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Le signal vocal capté est bruité, ce qui fausse l'analyse.</div><div class="so"><span class="lb">Solution apportée</span>Traitement par le bloc Product : la valeur RMS passe de 45,7 V à 5,39 V et la forme d'onde devient nettement plus propre.</div></div></div>
+
+  <h2 class="section-title">Résultats obtenus</h2>
+  <ul class="result-list reveal"><li>Démodulation FM fidèle : fréquence restituée proche de l'originale (≈ 3,55 Hz) avec une faible distorsion</li><li>Mise en évidence de la quantification en paliers introduite par le codec G.711</li><li>Signal décodé (F) retrouvant sa forme générale avec une légère perte d'amplitude liée à la compression</li></ul>
+
+  <h2 class="section-title">Compétences développées</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Compétences</h3><ul class="dash"><li>Modulation et démodulation analogique</li><li>Numérisation et codage de la voix</li><li>Mesure et caractérisation de signaux</li><li>Modélisation sous Simulink</li><li>Analyse et interprétation de résultats</li></ul></div>
+    <div class="info-card accent"><h3>Ce que ce projet m'a apporté</h3><p class="quote">Ce projet m'a fait comprendre concrètement ce qui se passe « dans le câble » lors d'un appel téléphonique, et l'importance de mesurer pour valider une chaîne de transmission.</p></div>
+  </div>
+
+  <div class="pdf-cta reveal">
+    <div><h2>Envie d'aller plus loin ?</h2><p>Le document complet détaille toutes les configurations, mesures et analyses.</p></div>
+    <div class="pdf-group"><div class="pdf-line"><span class="pdf-label">Rapport de mesures (20 pages)</span><a class="btn btn-sm" href="../pdf/SAE202_Mesure_signal_FM_G711.pdf" data-pdf="../pdf/SAE202_Mesure_signal_FM_G711.pdf" data-title="SAÉ 2.02 – Rapport de mesures (20 pages)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter</a><a class="btn btn-sm btn-ghost" href="../pdf/SAE202_Mesure_signal_FM_G711.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Télécharger</a></div></div>
+  </div>
+
+  <div class="p-nav"><a href="sae-201.html"><div class="dir">‹ Projet précédent</div><div class="t">SAÉ 2.01 · Construire un réseau informatique pour une petite structure</div></a><a class="next" href="sae-302.html"><div class="dir">Projet suivant ›</div><div class="t">SAÉ 3.02 · Développer des applications communicantes : Moki</div></a></div>
+</div>
+
+</main>
+
+<!-- ══════════════ PIED DE PAGE ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; ImaneProduction 2024 – <span id="year">2026</span> · Imane ABDOU · BUT Réseaux &amp; Télécommunications</p>
+    <p><a href="../projets.html">Projets</a><a href="../pdf/CV_Imane_ABDOU.pdf" target="_blank" rel="noopener">CV</a><a href="../contact.html">Contact</a></p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+<!-- ══════════════ VISIONNEUSE PDF ══════════════ -->
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" aria-label="Visionneuse de document">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <h3>Document</h3>
+      <div class="actions">
+        <a class="pdf-open-new" href="#" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>
+        <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+    <div class="pdf-viewer-wrap"><iframe title="Document PDF" src="about:blank"></iframe></div>
+  </div>
+</div>
+
+<!-- ══════════════ GALERIE (AGRANDISSEMENT) ══════════════ -->
+<div id="lightbox" class="modal" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <div class="lightbox-box">
+    <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+    <button class="lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <img alt="">
+    <button class="lb-next" type="button" aria-label="Image suivante">›</button>
+    <p class="cap"></p>
+  </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

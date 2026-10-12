@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAÉ 4.ROM.01 – Déployer une infrastructure opérateur et ses services clients | ABDOU IMANE</title>
+<meta name="description" content="Backbone MPLS L3VPN pour trois enseignes (VRF, MP-BGP, OSPF, EIGRP, RIP), évasion Internet centralisée en NAT et tests d'isolation et de résilience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003f87'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' fill='%23ffffff' text-anchor='middle'%3EI%3Ctspan fill='%23e05c1a'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="../index.html">ABDOU <span>IMANE</span></a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../formation.html">Formation</a>
+    <a href="../experiences.html">Expériences</a>
+    <a href="../competences.html">Compétences</a>
+    <a href="../certifications.html">Certifications</a>
+    <a href="../projets.html" class="active" aria-current="page">Mes Projets</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+<div class="page-inner">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> › <a href="../projets.html">Mes projets</a> › <a href="../projets.html#s4">Semestre 4</a> › SAÉ 4.ROM.01</nav>
+
+  <section class="p-hero">
+    <div>
+      <span class="projet-code">SAÉ 4.ROM.01 · 24 mars 2026</span>
+      <h1>Déployer une infrastructure opérateur et ses services clients</h1>
+      <p class="lead">Pour l'opérateur fictif A.I Telecom, raccorder trois nouveaux sites du groupe GBH à un cœur de réseau MPLS, avec une étanchéité totale entre enseignes.</p>
+      <div class="p-meta"><span class="tag orange">Semestre 4</span><span class="tag green">✓ Projet validé</span></div>
+      <p style="font-size:.86rem;color:var(--grey);margin-bottom:18px"><strong style="color:var(--navy-dark)">Équipe :</strong> Projet individuel · Réalisé par Imane ABDOU</p>
+      <div class="btn-row" style="justify-content:flex-start">
+        <a class="btn" href="../pdf/SAE4_ROM01_Infrastructure_operateur_MPLS.pdf" data-pdf="../pdf/SAE4_ROM01_Infrastructure_operateur_MPLS.pdf" data-title="SAÉ 4.ROM.01 – Rapport technique (38 pages)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter le PDF complet</a>
+        <a class="btn btn-ghost" href="#galerie">Voir les illustrations</a>
+      </div>
+    </div>
+    <div class="p-hero-img" data-zoom="../images/sae/sae4rom01-topologie.jpg" data-caption="Topologie VPN MPLS"><img src="../images/sae/sae4rom01-topologie.jpg" alt="Topologie VPN MPLS"></div>
+  </section>
+
+  <div class="facts reveal"><div class="fact"><div class="num">6</div><div class="lbl">routeurs opérateur (P, PE, E1)</div></div><div class="fact"><div class="num">6</div><div class="lbl">routeurs clients (CE)</div></div><div class="fact"><div class="num">4 VRF</div><div class="lbl">3 enseignes + Internet</div></div><div class="fact"><div class="num">3 IGP</div><div class="lbl">côté clients : OSPF, EIGRP, RIP</div></div></div>
+
+  <h2 class="section-title">Contexte et objectif</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Contexte</h3><p>Le groupe GBH étend sa présence à La Réunion : trois nouveaux sites de la ZAC Canaby (Saint-Pierre) doivent rejoindre ses sites déjà raccordés en VPN MPLS. Carrefour, Décathlon et Mr Bricolage partagent la même infrastructure physique mais ne doivent jamais voir le trafic des autres.</p></div>
+    <div class="info-card accent"><h3>Objectif</h3><p>Configurer cœur de réseau et routeurs de bordure, isoler chaque enseigne, offrir un accès Internet centralisé, valider par des tests complets et éclairer le client sur une éventuelle migration SD-WAN.</p></div>
+  </div>
+
+  <h2 class="section-title">Ma mission</h2>
+  <div class="role-box reveal"><h3>Mon rôle</h3><p>Projet réalisé seule, de la conception à la validation :</p><ul><li>Topologie, plan d'adressage et tableau des Route Distinguishers / Route Targets</li><li>Configuration du backbone (OSPF aire 0, MPLS/LDP) et des VRF sur les PE</li><li>Sessions MP-BGP VPNv4 et redistribution mutuelle avec OSPF, EIGRP et RIP côté clients</li><li>Passerelle d'évasion Internet (VRF dédiée, NAT overload) et batterie de tests</li><li>Étude comparative SD-WAN / MPLS pour le client</li></ul></div>
+
+  <h2 class="section-title">Travaux réalisés</h2>
+  <div class="steps reveal"><div class="step"><h4>Cœur de réseau</h4><p>Loopbacks comme Router-ID stables, liens point-à-point en /30, OSPF aire 0 et activation de MPLS (LDP) sur les interfaces du backbone.</p></div><div class="step"><h4>Isolation des clients</h4><p>Une VRF par enseigne sur PE1 et PE2, avec RD uniques et Route Targets en import/export strict ; interfaces clients associées par <code>ip vrf forwarding</code>.</p></div><div class="step"><h4>Diffusion des routes</h4><p>Session MP-BGP (AS 2) entre loopbacks, address-family VPNv4 et communautés étendues ; redistribution OSPF / EIGRP / RIPv2 ↔ BGP.</p></div><div class="step"><h4>Évasion Internet centralisée</h4><p>Routeur E1 avec VRF_GBH_INTERNET (RT 200:400), interface DHCP en NAT outside, ACL et PAT overload, route par défaut propagée via <code>default-information originate</code>.</p></div><div class="step"><h4>Validation</h4><p>Ping et traceroute intra-enseigne, tests d'isolation, simulation de panne, vérification de l'underlay, du transport et de l'overlay.</p></div></div>
+
+  <h2 class="section-title">Outils et technologies</h2>
+  <div class="tags reveal"><span class="tag">Routeurs Cisco (IOS)</span><span class="tag">OSPF</span><span class="tag">MPLS / LDP</span><span class="tag">MP-BGP VPNv4</span><span class="tag">VRF (RD / RT)</span><span class="tag">EIGRP</span><span class="tag">RIPv2</span><span class="tag">NAT / PAT</span><span class="tag">ACL</span><span class="tag">traceroute</span></div>
+
+  <h2 class="section-title" id="galerie">Illustrations du projet</h2>
+  <p style="color:var(--grey);font-size:.88rem;margin:-6px 0 16px">Images extraites du rapport. Cliquez pour agrandir.</p>
+  <div class="gallery"><figure data-zoom="../images/sae/sae4rom01-topologie.jpg" data-caption="Topologie VPN MPLS : Routeurs P du cœur, PE de bordure, routeur d'évasion E1 et CE des trois enseignes."><div class="g-img"><img src="../images/sae/sae4rom01-topologie.jpg" alt="Topologie VPN MPLS" loading="lazy"></div><figcaption><strong>Topologie VPN MPLS</strong>Routeurs P du cœur, PE de bordure, routeur d'évasion E1 et CE des trois enseignes.</figcaption></figure><figure data-zoom="../images/sae/sae4rom01-rd-rt.jpg" data-caption="Route Distinguishers et Route Targets : Valeurs RD / RT de chaque VRF qui garantissent le cloisonnement."><div class="g-img"><img src="../images/sae/sae4rom01-rd-rt.jpg" alt="Route Distinguishers et Route Targets" loading="lazy"></div><figcaption><strong>Route Distinguishers et Route Targets</strong>Valeurs RD / RT de chaque VRF qui garantissent le cloisonnement.</figcaption></figure><figure data-zoom="../images/sae/sae4rom01-config.jpg" data-caption="Configuration du backbone : Adressage des liens inter-routeurs en /30."><div class="g-img"><img src="../images/sae/sae4rom01-config.jpg" alt="Configuration du backbone" loading="lazy"></div><figcaption><strong>Configuration du backbone</strong>Adressage des liens inter-routeurs en /30.</figcaption></figure><figure data-zoom="../images/sae/sae4rom01-tests-isolation.jpg" data-caption="Tests de connectivité et d'isolation : Traceroute avec labels MPLS, puis échec volontaire des pings vers les autres enseignes."><div class="g-img"><img src="../images/sae/sae4rom01-tests-isolation.jpg" alt="Tests de connectivité et d'isolation" loading="lazy"></div><figcaption><strong>Tests de connectivité et d'isolation</strong>Traceroute avec labels MPLS, puis échec volontaire des pings vers les autres enseignes.</figcaption></figure><figure data-zoom="../images/sae/sae4rom01-panne.jpg" data-caption="Simulation de panne : Le trafic emprunte automatiquement la route de secours via P2."><div class="g-img"><img src="../images/sae/sae4rom01-panne.jpg" alt="Simulation de panne" loading="lazy"></div><figcaption><strong>Simulation de panne</strong>Le trafic emprunte automatiquement la route de secours via P2.</figcaption></figure><figure data-zoom="../images/sae/sae4rom01-mpls.jpg" data-caption="Validation du transport MPLS : Interfaces LDP et table de commutation des labels."><div class="g-img"><img src="../images/sae/sae4rom01-mpls.jpg" alt="Validation du transport MPLS" loading="lazy"></div><figcaption><strong>Validation du transport MPLS</strong>Interfaces LDP et table de commutation des labels.</figcaption></figure></div>
+
+  <h2 class="section-title">Difficultés et solutions</h2>
+  <div class="challenges reveal"><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Partager un même cœur de réseau entre trois enseignes concurrentes sans aucune fuite de trafic.</div><div class="so"><span class="lb">Solution apportée</span>Architecture L3VPN : VRF par client et Route Targets stricts. Les pings Carrefour → Décathlon ou Mr Bricolage échouent (0 %), preuve de l'isolation.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Les sites n'ont pas de liaison Internet dédiée, mais chaque client doit pouvoir sortir.</div><div class="so"><span class="lb">Solution apportée</span>VRF Internet commune qui importe les RT clients ; les VRF clientes importent uniquement le RT 200:400 : accès Internet partagé, isolation conservée.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Chaque enseigne utilise un protocole de routage différent.</div><div class="so"><span class="lb">Solution apportée</span>Redistribution mutuelle adaptée à chaque protocole (métriques EIGRP et RIP, <code>no auto-summary</code> pour le VLSM).</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Garantir la continuité de service en cas de coupure dans le backbone.</div><div class="so"><span class="lb">Solution apportée</span>Test de panne (lien P1–P3 débranché) : le trafic est reconverti automatiquement via P2 et le ping reste à 100 %.</div></div></div>
+
+  <h2 class="section-title">Résultats obtenus</h2>
+  <ul class="result-list reveal"><li>Connectivité 100 % entre sites d'une même enseigne, avec commutation par labels MPLS visible au traceroute</li><li>Isolation totale entre Carrefour, Décathlon et Mr Bricolage</li><li>Résilience validée par simulation de panne</li><li>Voisinages OSPF FULL, LDP opérationnel, sessions VPNv4 établies et route d'évasion présente dans chaque VRF</li></ul>
+
+  <h2 class="section-title">Compétences développées</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Compétences</h3><ul class="dash"><li>Conception et configuration d'un réseau opérateur</li><li>Routage avancé (MPLS, MP-BGP, redistribution)</li><li>Isolation multi-clients (VRF)</li><li>Méthodologie de validation et de dépannage</li><li>Conseil technico-économique (MPLS vs SD-WAN)</li></ul></div>
+    <div class="info-card accent"><h3>Ce que ce projet m'a apporté</h3><p class="quote">C'est le projet le plus complet de mon parcours : il m'a fait raisonner comme un opérateur, du cœur de réseau jusqu'au service rendu au client, en documentant chaque choix.</p></div>
+  </div>
+
+  <div class="pdf-cta reveal">
+    <div><h2>Envie d'aller plus loin ?</h2><p>Le document complet détaille toutes les configurations, mesures et analyses.</p></div>
+    <div class="pdf-group"><div class="pdf-line"><span class="pdf-label">Rapport technique (38 pages)</span><a class="btn btn-sm" href="../pdf/SAE4_ROM01_Infrastructure_operateur_MPLS.pdf" data-pdf="../pdf/SAE4_ROM01_Infrastructure_operateur_MPLS.pdf" data-title="SAÉ 4.ROM.01 – Rapport technique (38 pages)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter</a><a class="btn btn-sm btn-ghost" href="../pdf/SAE4_ROM01_Infrastructure_operateur_MPLS.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Télécharger</a></div></div>
+  </div>
+
+  <div class="p-nav"><a href="sae-3-rom-03.html"><div class="dir">‹ Projet précédent</div><div class="t">SAÉ 3.ROM.03 · Infrastructure réseau et solution multimédia : AB InfraTech</div></a><a class="next" href="r408-ehpad.html"><div class="dir">Projet suivant ›</div><div class="t">R4.08 · PPP · Sécurisation des chutes en EHPAD</div></a></div>
+</div>
+
+</main>
+
+<!-- ══════════════ PIED DE PAGE ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; ImaneProduction 2024 – <span id="year">2026</span> · Imane ABDOU · BUT Réseaux &amp; Télécommunications</p>
+    <p><a href="../projets.html">Projets</a><a href="../pdf/CV_Imane_ABDOU.pdf" target="_blank" rel="noopener">CV</a><a href="../contact.html">Contact</a></p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+<!-- ══════════════ VISIONNEUSE PDF ══════════════ -->
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" aria-label="Visionneuse de document">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <h3>Document</h3>
+      <div class="actions">
+        <a class="pdf-open-new" href="#" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>
+        <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+    <div class="pdf-viewer-wrap"><iframe title="Document PDF" src="about:blank"></iframe></div>
+  </div>
+</div>
+
+<!-- ══════════════ GALERIE (AGRANDISSEMENT) ══════════════ -->
+<div id="lightbox" class="modal" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <div class="lightbox-box">
+    <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+    <button class="lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <img alt="">
+    <button class="lb-next" type="button" aria-label="Image suivante">›</button>
+    <p class="cap"></p>
+  </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

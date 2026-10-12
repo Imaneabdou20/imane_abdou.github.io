@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – ABDOU IMANE</title>
+<meta name="description" content="Contacter Imane ABDOU.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003f87'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' fill='%23ffffff' text-anchor='middle'%3EI%3Ctspan fill='%23e05c1a'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="index.html">ABDOU <span>IMANE</span></a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="formation.html">Formation</a>
+    <a href="experiences.html">Expériences</a>
+    <a href="competences.html">Compétences</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="projets.html">Mes Projets</a>
+    <a href="contact.html" class="active" aria-current="page">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+<div class="page-inner">
+  <div class="page-header">
+    <h1>Me <span>Contacter</span></h1>
+    <div class="page-header-bar"></div>
+    <p class="page-intro">Recruteur, enseignant ou professionnel des télécoms : n'hésitez pas à me contacter.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info-card reveal">
+      <h3>Coordonnées</h3>
+      <ul>
+        <li><strong>Email :</strong><br><a href="mailto:iabdou@rt-iut.re">iabdou@rt-iut.re</a></li>
+        <li><strong>LinkedIn :</strong><br><a href="https://www.linkedin.com/in/imane-a-590911341" target="_blank" rel="noopener">linkedin.com/in/imane-a</a></li>
+        <li><strong>Localisation :</strong><br>La Réunion, France</li>
+        <li><strong>CV :</strong><br><a href="pdf/CV_Imane_ABDOU.pdf" download="CV_Imane_ABDOU.pdf">Télécharger mon CV (PDF)</a></li>
+      </ul>
+    </div>
+    <div class="form-card reveal">
+      <h3>Envoyer un message</h3>
+      <form action="https://formspree.io/f/xeoekqvb" method="POST">
+        <div class="fg"><label for="f-name">Nom</label><input id="f-name" type="text" name="name" placeholder="Votre nom" required autocomplete="name"></div>
+        <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" name="email" placeholder="votre@email.com" required autocomplete="email"></div>
+        <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Votre message..." required></textarea></div>
+        <button type="submit" class="btn-send">Envoyer le message</button>
+        <p class="form-hint">Le formulaire est transmis via le service Formspree (connexion Internet requise). Vous pouvez aussi m'écrire directement par email.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══════════════ PIED DE PAGE ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; ImaneProduction 2024 – <span id="year">2026</span> · Imane ABDOU · BUT Réseaux &amp; Télécommunications</p>
+    <p><a href="projets.html">Projets</a><a href="pdf/CV_Imane_ABDOU.pdf" target="_blank" rel="noopener">CV</a><a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAÉ 1.02 – S'initier aux réseaux informatiques | ABDOU IMANE</title>
+<meta name="description" content="Station de mesure IoT sur Raspberry Pi 5 : capteur DHT22, LEDs pilotées en Python, accès SSH à distance et remontée des données via MQTT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003f87'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' fill='%23ffffff' text-anchor='middle'%3EI%3Ctspan fill='%23e05c1a'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="../index.html">ABDOU <span>IMANE</span></a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../formation.html">Formation</a>
+    <a href="../experiences.html">Expériences</a>
+    <a href="../competences.html">Compétences</a>
+    <a href="../certifications.html">Certifications</a>
+    <a href="../projets.html" class="active" aria-current="page">Mes Projets</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+<div class="page-inner">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> › <a href="../projets.html">Mes projets</a> › <a href="../projets.html#s1">Semestre 1</a> › SAÉ 1.02</nav>
+
+  <section class="p-hero">
+    <div>
+      <span class="projet-code">SAÉ 1.02 · BUT 1 · Semestre 1</span>
+      <h1>S'initier aux réseaux informatiques</h1>
+      <p class="lead">Mettre en réseau un Raspberry Pi 5 pour collecter température et humidité, déclencher des LEDs et publier les mesures via un broker MQTT.</p>
+      <div class="p-meta"><span class="tag orange">Semestre 1</span><span class="tag green">✓ Projet validé</span></div>
+      <p style="font-size:.86rem;color:var(--grey);margin-bottom:18px"><strong style="color:var(--navy-dark)">Équipe :</strong> Projet en trio : HOUMADI Soirihi, HOARAU Thomas, ABDOU Imane</p>
+      <div class="btn-row" style="justify-content:flex-start">
+        <a class="btn" href="../pdf/SAE102_Reseaux_informatiques_Raspberry.pdf" data-pdf="../pdf/SAE102_Reseaux_informatiques_Raspberry.pdf" data-title="SAÉ 1.02 – Présentation du projet (27 diapositives)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter le PDF complet</a>
+        <a class="btn btn-ghost" href="#galerie">Voir les illustrations</a>
+      </div>
+    </div>
+    <div class="p-hero-img" data-zoom="../images/sae/sae102-cablage-final.jpg" data-caption="Schéma de câblage final"><img src="../images/sae/sae102-cablage-final.jpg" alt="Schéma de câblage final"></div>
+  </section>
+
+  <div class="facts reveal"><div class="fact"><div class="num">1</div><div class="lbl">Raspberry Pi 5</div></div><div class="fact"><div class="num">DHT22</div><div class="lbl">capteur T° & humidité</div></div><div class="fact"><div class="num">2 LEDs</div><div class="lbl">verte / rouge</div></div><div class="fact"><div class="num">3 accès</div><div class="lbl">SSH : DHCP, Tailscale, PuTTY</div></div></div>
+
+  <h2 class="section-title">Contexte et objectif</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Contexte</h3><p>Première SAÉ réseau du BUT : découvrir concrètement comment un équipement obtient une adresse, se rend accessible à distance et échange des données sur le réseau.</p></div>
+    <div class="info-card accent"><h3>Objectif</h3><p>Installer et configurer un Raspberry Pi, s'y connecter à distance, câbler un capteur et des LEDs, puis transmettre les mesures à un broker MQTT et vers un tableau de bord (Ubidots).</p></div>
+  </div>
+
+  <h2 class="section-title">Ma mission</h2>
+  <div class="role-box reveal"><h3>Mon rôle</h3><p>Projet mené en équipe de trois, où nous avons réalisé ensemble l'ensemble de la chaîne :</p><ul><li>Installation de l'OS avec Raspberry Pi Imager (activation SSH, identifiants personnalisés) et flash de la carte microSD</li><li>Récupération de l'adresse IP (DHCP du routeur Linksys, Advanced IP Scanner) et connexion à distance (terminal, PuTTY, Tailscale)</li><li>Câblage du capteur DHT22 et des LEDs sur la plaque d'essai (GPIO 4), scripts Python dans un environnement virtuel</li><li>Publication des mesures sur un broker MQTT et mise au point du script de pilotage des LEDs</li></ul></div>
+
+  <h2 class="section-title">Travaux réalisés</h2>
+  <div class="steps reveal"><div class="step"><h4>Préparation du Raspberry Pi</h4><p>Installation via Raspberry Pi Imager : SSH activé, nom d'utilisateur et mot de passe modifiés, OS flashé sur microSD.</p></div><div class="step"><h4>Accès réseau et administration à distance</h4><p>Adresse obtenue par DHCP sur le routeur, repérée avec Advanced IP Scanner ; accès SSH en local ou via le VPN Tailscale (WireGuard) hors du réseau local.</p></div><div class="step"><h4>Électronique et premiers scripts</h4><p>Schéma de câblage d'une LED (GPIO 4), création d'un environnement virtuel Python et d'un alias <code>envPy</code> pour l'activer rapidement.</p></div><div class="step"><h4>Collecte et diffusion des données</h4><p>Lecture du DHT22 (adafruit_dht), publication des mesures sur un topic MQTT et transmission vers Ubidots.</p></div><div class="step"><h4>Mise au point du script</h4><p>Logique de pilotage des LEDs (vert / rouge / autre) formalisée par un logigramme puis codée en Python.</p></div></div>
+
+  <h2 class="section-title">Outils et technologies</h2>
+  <div class="tags reveal"><span class="tag">Raspberry Pi 5</span><span class="tag">Raspberry Pi Imager</span><span class="tag">Python (venv)</span><span class="tag">DHT22</span><span class="tag">MQTT</span><span class="tag">Ubidots</span><span class="tag">SSH / PuTTY</span><span class="tag">Tailscale</span><span class="tag">Advanced IP Scanner</span><span class="tag">DHCP</span></div>
+
+  <h2 class="section-title" id="galerie">Illustrations du projet</h2>
+  <p style="color:var(--grey);font-size:.88rem;margin:-6px 0 16px">Images extraites du rapport. Cliquez pour agrandir.</p>
+  <div class="gallery"><figure data-zoom="../images/sae/sae102-cablage-final.jpg" data-caption="Schéma de câblage final : Raspberry Pi 5, capteur DHT22 et LEDs sur plaque d'essai : schéma Fritzing et montage réel."><div class="g-img"><img src="../images/sae/sae102-cablage-final.jpg" alt="Schéma de câblage final" loading="lazy"></div><figcaption><strong>Schéma de câblage final</strong>Raspberry Pi 5, capteur DHT22 et LEDs sur plaque d'essai : schéma Fritzing et montage réel.</figcaption></figure><figure data-zoom="../images/sae/sae102-cablage-led.jpg" data-caption="Premiers tests de câblage : Câblage d'une LED sur le GPIO 4 et validation du montage."><div class="g-img"><img src="../images/sae/sae102-cablage-led.jpg" alt="Premiers tests de câblage" loading="lazy"></div><figcaption><strong>Premiers tests de câblage</strong>Câblage d'une LED sur le GPIO 4 et validation du montage.</figcaption></figure><figure data-zoom="../images/sae/sae102-ssh.jpg" data-caption="Connexion SSH à distance : Accès par l'adresse DHCP, par l'adresse Tailscale et via PuTTY."><div class="g-img"><img src="../images/sae/sae102-ssh.jpg" alt="Connexion SSH à distance" loading="lazy"></div><figcaption><strong>Connexion SSH à distance</strong>Accès par l'adresse DHCP, par l'adresse Tailscale et via PuTTY.</figcaption></figure><figure data-zoom="../images/sae/sae102-mqtt.jpg" data-caption="Utilisation du broker MQTT : Les mesures transitent par le Raspberry Pi vers le broker MQTT puis vers Ubidots, et déclenchent les LEDs."><div class="g-img"><img src="../images/sae/sae102-mqtt.jpg" alt="Utilisation du broker MQTT" loading="lazy"></div><figcaption><strong>Utilisation du broker MQTT</strong>Les mesures transitent par le Raspberry Pi vers le broker MQTT puis vers Ubidots, et déclenchent les LEDs.</figcaption></figure><figure data-zoom="../images/sae/sae102-script.jpg" data-caption="Mise au point du script : Fonction de pilotage des LEDs et logigramme associé."><div class="g-img"><img src="../images/sae/sae102-script.jpg" alt="Mise au point du script" loading="lazy"></div><figcaption><strong>Mise au point du script</strong>Fonction de pilotage des LEDs et logigramme associé.</figcaption></figure></div>
+
+  <h2 class="section-title">Difficultés et solutions</h2>
+  <div class="challenges reveal"><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Accéder au Raspberry Pi lorsqu'il n'est pas sur le même réseau local que nos postes.</div><div class="so"><span class="lb">Solution apportée</span>Utilisation de Tailscale, VPN basé sur WireGuard, en complément de l'accès SSH classique par l'adresse DHCP.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Retrouver rapidement l'adresse IP attribuée au Raspberry Pi.</div><div class="so"><span class="lb">Solution apportée</span>Lecture des baux DHCP sur le routeur et scan du réseau avec Advanced IP Scanner.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Activer à chaque session l'environnement Python du projet.</div><div class="so"><span class="lb">Solution apportée</span>Création d'un alias <code>envPy</code> dans le <code>.bashrc</code> pour activer l'environnement virtuel en une commande.</div></div></div>
+
+  <h2 class="section-title">Résultats obtenus</h2>
+  <ul class="result-list reveal"><li>Raspberry Pi administrable à distance (SSH local ou via VPN)</li><li>Capteur DHT22 et LEDs câblés et pilotés par script Python</li><li>Mesures publiées via MQTT et récupérables à tout moment et depuis n'importe où</li></ul>
+
+  <h2 class="section-title">Compétences développées</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Compétences</h3><ul class="dash"><li>Adressage IP et DHCP</li><li>Administration à distance (SSH, VPN)</li><li>Notions d'IoT et protocole MQTT (broker, topics, clients)</li><li>Programmation Python appliquée au matériel</li><li>Travail en équipe et présentation orale</li></ul></div>
+    <div class="info-card accent"><h3>Ce que ce projet m'a apporté</h3><p class="quote">Ce projet m'a fait toucher du doigt toute la chaîne d'un objet connecté, du câblage à la donnée exploitable, et m'a familiarisée avec l'administration à distance.</p></div>
+  </div>
+
+  <div class="pdf-cta reveal">
+    <div><h2>Envie d'aller plus loin ?</h2><p>Le document complet détaille toutes les configurations, mesures et analyses.</p></div>
+    <div class="pdf-group"><div class="pdf-line"><span class="pdf-label">Présentation du projet (27 diapositives)</span><a class="btn btn-sm" href="../pdf/SAE102_Reseaux_informatiques_Raspberry.pdf" data-pdf="../pdf/SAE102_Reseaux_informatiques_Raspberry.pdf" data-title="SAÉ 1.02 – Présentation du projet (27 diapositives)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter</a><a class="btn btn-sm btn-ghost" href="../pdf/SAE102_Reseaux_informatiques_Raspberry.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Télécharger</a></div></div>
+  </div>
+
+  <div class="p-nav"><a href="sae-101.html"><div class="dir">‹ Projet précédent</div><div class="t">SAÉ 1.01 · Se sensibiliser à l'hygiène informatique et à la cybersécurité</div></a><a class="next" href="sae-103.html"><div class="dir">Projet suivant ›</div><div class="t">SAÉ 1.03 · Découvrir un dispositif de transmission : audit de la couverture Wi-Fi</div></a></div>
+</div>
+
+</main>
+
+<!-- ══════════════ PIED DE PAGE ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; ImaneProduction 2024 – <span id="year">2026</span> · Imane ABDOU · BUT Réseaux &amp; Télécommunications</p>
+    <p><a href="../projets.html">Projets</a><a href="../pdf/CV_Imane_ABDOU.pdf" target="_blank" rel="noopener">CV</a><a href="../contact.html">Contact</a></p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+<!-- ══════════════ VISIONNEUSE PDF ══════════════ -->
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" aria-label="Visionneuse de document">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <h3>Document</h3>
+      <div class="actions">
+        <a class="pdf-open-new" href="#" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>
+        <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+    <div class="pdf-viewer-wrap"><iframe title="Document PDF" src="about:blank"></iframe></div>
+  </div>
+</div>
+
+<!-- ══════════════ GALERIE (AGRANDISSEMENT) ══════════════ -->
+<div id="lightbox" class="modal" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <div class="lightbox-box">
+    <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+    <button class="lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <img alt="">
+    <button class="lb-next" type="button" aria-label="Image suivante">›</button>
+    <p class="cap"></p>
+  </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R4.08 · PPP – Sécurisation des chutes en EHPAD | ABDOU IMANE</title>
+<meta name="description" content="Étude d'un système de détection de chutes par capteurs connectés : architecture réseau IoT, cybersécurité des données de santé et bilan de déploiement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003f87'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' fill='%23ffffff' text-anchor='middle'%3EI%3Ctspan fill='%23e05c1a'%3EA%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="../index.html">ABDOU <span>IMANE</span></a>
+  <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../formation.html">Formation</a>
+    <a href="../experiences.html">Expériences</a>
+    <a href="../competences.html">Compétences</a>
+    <a href="../certifications.html">Certifications</a>
+    <a href="../projets.html" class="active" aria-current="page">Mes Projets</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+<div class="page-inner">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> › <a href="../projets.html">Mes projets</a> › <a href="../projets.html#s4">Semestre 4</a> › R4.08 · PPP</nav>
+
+  <section class="p-hero">
+    <div>
+      <span class="projet-code">R4.08 · PPP · BUT 2 · Semestre 4</span>
+      <h1>Sécurisation des chutes en EHPAD</h1>
+      <p class="lead">Un projet pluridisciplinaire pour réduire le temps passé au sol par les résidents la nuit, en combinant capteurs, réseau et cybersécurité.</p>
+      <div class="p-meta"><span class="tag orange">Semestre 4</span><span class="tag green">✓ Projet validé</span></div>
+      <p style="font-size:.86rem;color:var(--grey);margin-bottom:18px"><strong style="color:var(--navy-dark)">Équipe :</strong> Équipe de 3 : Imane ABDOU et Ethan PHILIPE (parcours ROM), Alexy SORRES (parcours Cybersécurité)</p>
+      <div class="btn-row" style="justify-content:flex-start">
+        <a class="btn" href="../pdf/R408_Securisation_chutes_EHPAD.pdf" data-pdf="../pdf/R408_Securisation_chutes_EHPAD.pdf" data-title="R4.08 · PPP – Présentation du projet (11 diapositives)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter le PDF complet</a>
+        <a class="btn btn-ghost" href="#galerie">Voir les illustrations</a>
+      </div>
+    </div>
+    <div class="p-hero-img" data-zoom="../images/sae/ehpad-chambre.jpg" data-caption="Architecture dans une chambre"><img src="../images/sae/ehpad-chambre.jpg" alt="Architecture dans une chambre"></div>
+  </section>
+
+  <div class="facts reveal"><div class="fact"><div class="num">6 à 8 h</div><div class="lbl">temps moyen passé au sol</div></div><div class="fact"><div class="num">5 capteurs</div><div class="lbl">+ 1 antenne par chambre</div></div><div class="fact"><div class="num">3 niveaux</div><div class="lbl">d'alerte</div></div><div class="fact"><div class="num">2 min</div><div class="lbl">avant / après l'incident conservées</div></div></div>
+
+  <h2 class="section-title">Contexte et objectif</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Contexte</h3><p>En EHPAD, les chutes nocturnes en chambre isolée sont détectées trop tard : 6 à 8 heures passées au sol en moyenne, avec blessures aggravées, hypothermie, déshydratation et un stress important pour les soignants et les familles.</p></div>
+    <div class="info-card accent"><h3>Objectif</h3><p>Proposer et auditer une solution de détection en temps réel (capteurs MINT) avec une infrastructure réseau fiable et une protection stricte des données de santé.</p></div>
+  </div>
+
+  <h2 class="section-title">Ma mission</h2>
+  <div class="role-box reveal"><h3>Mon rôle</h3><p>Projet de groupe mêlant les parcours Réseaux opérateurs (ROM) et Cybersécurité. Nous avons étudié ensemble :</p><ul><li>Le constat et le besoin des équipes soignantes</li><li>Le fonctionnement des capteurs, des niveaux d'alerte et de l'interface infirmière</li><li>L'architecture réseau et la cybersécurité de la solution</li><li>Le bilan contraintes / bénéfices du déploiement</li></ul></div>
+
+  <h2 class="section-title">Travaux réalisés</h2>
+  <div class="steps reveal"><div class="step"><h4>Constat</h4><p>Analyse des conséquences médicales, opérationnelles et humaines d'une détection tardive.</p></div><div class="step"><h4>Solution capteur MINT</h4><p>Analyse dynamique (vitesse de chute) et statique (immobilité prolongée), alerte en temps réel vers les terminaux infirmiers.</p></div><div class="step"><h4>Architecture en chambre</h4><p>1 antenne centrale + 5 capteurs : plafond, près du lit, salle de bain, porte et capteur complémentaire.</p></div><div class="step"><h4>Architecture réseau</h4><p>VLAN IoT isolé, concentration locale vers un switch et un serveur de supervision, redondance et priorisation des alertes, monitoring par la DSI.</p></div><div class="step"><h4>Cybersécurité et bilan</h4><p>Chiffrement TLS, pare-feu pfSense, authentification forte, sauvegardes chiffrées (PRA), puis bilan contraintes / bénéfices.</p></div></div>
+
+  <h2 class="section-title">Outils et technologies</h2>
+  <div class="tags reveal"><span class="tag">Capteurs de mouvement IoT</span><span class="tag">Antenne centrale</span><span class="tag">VLAN</span><span class="tag">Switch + serveur de supervision</span><span class="tag">TLS</span><span class="tag">pfSense</span><span class="tag">Sauvegardes externalisées</span></div>
+
+  <h2 class="section-title" id="galerie">Illustrations du projet</h2>
+  <p style="color:var(--grey);font-size:.88rem;margin:-6px 0 16px">Images extraites du rapport. Cliquez pour agrandir.</p>
+  <div class="gallery"><figure data-zoom="../images/sae/ehpad-chambre.jpg" data-caption="Architecture dans une chambre : Une antenne centrale et cinq capteurs positionnés aux zones à risque."><div class="g-img"><img src="../images/sae/ehpad-chambre.jpg" alt="Architecture dans une chambre" loading="lazy"></div><figcaption><strong>Architecture dans une chambre</strong>Une antenne centrale et cinq capteurs positionnés aux zones à risque.</figcaption></figure><figure data-zoom="../images/sae/ehpad-constat.jpg" data-caption="Le constat : Des incidents nocturnes détectés trop tard."><div class="g-img"><img src="../images/sae/ehpad-constat.jpg" alt="Le constat" loading="lazy"></div><figcaption><strong>Le constat</strong>Des incidents nocturnes détectés trop tard.</figcaption></figure><figure data-zoom="../images/sae/ehpad-capteur.jpg" data-caption="La solution : capteur MINT : Analyse dynamique et statique, alerte en temps réel."><div class="g-img"><img src="../images/sae/ehpad-capteur.jpg" alt="La solution : capteur MINT" loading="lazy"></div><figcaption><strong>La solution : capteur MINT</strong>Analyse dynamique et statique, alerte en temps réel.</figcaption></figure><figure data-zoom="../images/sae/ehpad-alertes.jpg" data-caption="Alertes en temps réel : Trois niveaux d'alerte et l'interface infirmière."><div class="g-img"><img src="../images/sae/ehpad-alertes.jpg" alt="Alertes en temps réel" loading="lazy"></div><figcaption><strong>Alertes en temps réel</strong>Trois niveaux d'alerte et l'interface infirmière.</figcaption></figure><figure data-zoom="../images/sae/ehpad-infrarouge.jpg" data-caption="Analyse infrarouge et vie privée : Comprendre la chute sans caméra, dans le respect du RGPD."><div class="g-img"><img src="../images/sae/ehpad-infrarouge.jpg" alt="Analyse infrarouge et vie privée" loading="lazy"></div><figcaption><strong>Analyse infrarouge et vie privée</strong>Comprendre la chute sans caméra, dans le respect du RGPD.</figcaption></figure><figure data-zoom="../images/sae/ehpad-reseau.jpg" data-caption="Architecture réseau : VLAN IoT, concentration locale, haute disponibilité et supervision."><div class="g-img"><img src="../images/sae/ehpad-reseau.jpg" alt="Architecture réseau" loading="lazy"></div><figcaption><strong>Architecture réseau</strong>VLAN IoT, concentration locale, haute disponibilité et supervision.</figcaption></figure><figure data-zoom="../images/sae/ehpad-cyber.jpg" data-caption="Cybersécurité : Chiffrement, filtrage, gestion des accès et résilience des données."><div class="g-img"><img src="../images/sae/ehpad-cyber.jpg" alt="Cybersécurité" loading="lazy"></div><figcaption><strong>Cybersécurité</strong>Chiffrement, filtrage, gestion des accès et résilience des données.</figcaption></figure><figure data-zoom="../images/sae/ehpad-bilan.jpg" data-caption="Bilan de l'audit : Contraintes de déploiement et bénéfices attendus."><div class="g-img"><img src="../images/sae/ehpad-bilan.jpg" alt="Bilan de l'audit" loading="lazy"></div><figcaption><strong>Bilan de l'audit</strong>Contraintes de déploiement et bénéfices attendus.</figcaption></figure></div>
+
+  <h2 class="section-title">Difficultés et solutions</h2>
+  <div class="challenges reveal"><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Comprendre la cause d'une chute sans porter atteinte à la vie privée des résidents.</div><div class="so"><span class="lb">Solution apportée</span>« Replay » thermique infrarouge sans caméra, avec conservation limitée aux 2 minutes avant et après l'incident (RGPD).</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Garantir que l'alerte arrive toujours, même en cas de congestion ou de panne.</div><div class="so"><span class="lb">Solution apportée</span>VLAN IoT isolé du réseau administratif, redondance, priorisation des paquets d'alerte et supervision proactive.</div></div><div class="challenge"><div class="pb"><span class="lb">Enjeu / difficulté</span>Protéger des données de santé sensibles.</div><div class="so"><span class="lb">Solution apportée</span>Flux chiffrés en TLS, pare-feu, accès nominatifs et traçables aux séquences, sauvegardes chiffrées.</div></div></div>
+
+  <h2 class="section-title">Résultats obtenus</h2>
+  <ul class="result-list reveal"><li>Délai d'intervention visé : de 6 heures à quelques minutes</li><li>Alertes graduées (simple, urgente, critique) avec numéro de chambre et historique</li><li>Contraintes identifiées : coût, câblage en milieu occupé, réglage des fausses alertes, formation du personnel</li></ul>
+
+  <h2 class="section-title">Compétences développées</h2>
+  <div class="two-col reveal">
+    <div class="info-card"><h3>Compétences</h3><ul class="dash"><li>Analyse d'un besoin métier réel</li><li>Conception d'une architecture réseau IoT sécurisée</li><li>Prise en compte du RGPD</li><li>Travail pluridisciplinaire (réseau, cybersécurité, santé)</li><li>Présentation orale</li></ul></div>
+    <div class="info-card accent"><h3>Ce que ce projet m'a apporté</h3><p class="quote">Ce projet m'a montré que le réseau est au service d'un enjeu humain : la fiabilité d'une alerte peut changer l'issue d'une chute.</p></div>
+  </div>
+
+  <div class="pdf-cta reveal">
+    <div><h2>Envie d'aller plus loin ?</h2><p>Le document complet détaille toutes les configurations, mesures et analyses.</p></div>
+    <div class="pdf-group"><div class="pdf-line"><span class="pdf-label">Présentation du projet (11 diapositives)</span><a class="btn btn-sm" href="../pdf/R408_Securisation_chutes_EHPAD.pdf" data-pdf="../pdf/R408_Securisation_chutes_EHPAD.pdf" data-title="R4.08 · PPP – Présentation du projet (11 diapositives)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Consulter</a><a class="btn btn-sm btn-ghost" href="../pdf/R408_Securisation_chutes_EHPAD.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Télécharger</a></div></div>
+  </div>
+
+  <div class="p-nav"><a href="sae-4-rom-01.html"><div class="dir">‹ Projet précédent</div><div class="t">SAÉ 4.ROM.01 · Déployer une infrastructure opérateur et ses services clients</div></a><a class="next" href="r501-wifi.html"><div class="dir">Projet suivant ›</div><div class="t">R5.01 · Wi-Fi avancé · Wi-Fi avancé : configuration et dépannage de réseaux sans fil</div></a></div>
+</div>
+
+</main>
+
+<!-- ══════════════ PIED DE PAGE ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; ImaneProduction 2024 – <span id="year">2026</span> · Imane ABDOU · BUT Réseaux &amp; Télécommunications</p>
+    <p><a href="../projets.html">Projets</a><a href="../pdf/CV_Imane_ABDOU.pdf" target="_blank" rel="noopener">CV</a><a href="../contact.html">Contact</a></p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+<!-- ══════════════ VISIONNEUSE PDF ══════════════ -->
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" aria-label="Visionneuse de document">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <h3>Document</h3>
+      <div class="actions">
+        <a class="pdf-open-new" href="#" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>
+        <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+    <div class="pdf-viewer-wrap"><iframe title="Document PDF" src="about:blank"></iframe></div>
+  </div>
+</div>
+
+<!-- ══════════════ GALERIE (AGRANDISSEMENT) ══════════════ -->
+<div id="lightbox" class="modal" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <div class="lightbox-box">
+    <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+    <button class="lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <img alt="">
+    <button class="lb-next" type="button" aria-label="Image suivante">›</button>
+    <p class="cap"></p>
+  </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
